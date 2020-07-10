@@ -23,7 +23,7 @@ company='ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA'
 files_without_header=()
 
 # Check license header only for office repositories
-# if [[ $ORIGIN_URL = https://github.com/ZupIT/beagle-web-react.git* ]] ; then
+# if [[ $ORIGIN_URL = https://github.com/ZupIT/beagle-web-components.git* ]] ; then
 
 # Retrieve the list of newly added files
 newly_added_files=($(git diff --name-only --diff-filter=A --cached))
