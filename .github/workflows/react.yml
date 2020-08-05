@@ -26,14 +26,14 @@ jobs:
       - name: Start backend
         run: |
           echo $token | docker login $registry -u $user --password-stdin
-          docker run --rm -d -p 8080:8080 $registry/$backend-repository/$backend-image
+          docker run --rm -d -p 8080:8080 $registry/$backend_repository/$backend_image
           docker logout $registry
         env:
           user: ${{ github.actor }}
           token: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          backend-repository: zupit/beagle
-          backend-image: automated-test-backend
+          backend_repository: zupit/beagle
+          backend_image: automated-test-backend
 
       - name: Clear yarn cache
         run: yarn cache clean
