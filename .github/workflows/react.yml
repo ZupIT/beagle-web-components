@@ -16,7 +16,7 @@
 
 name: Beagle React Automated Tests
 
-on: push
+on: workflow_dispatch
 
 jobs:
   test:
