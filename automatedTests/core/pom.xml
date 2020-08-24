@@ -138,7 +138,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <languageVersion>1.2</languageVersion>
+                    <languageVersion>1.1</languageVersion>
                 </configuration>
             </plugin>
         </plugins>
