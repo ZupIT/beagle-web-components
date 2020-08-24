@@ -98,10 +98,12 @@ jobs:
       #   uses: actions/setup-java@v1
       #   with:
       #     java-version: 1.8
+      # - name: Move to UI Tests folder
+      #   run: |
+      #     cd components/tests/automatedTests
       - name: Start UI Tests
         run: |
           cd components/tests/automatedTests
-      - name: Start UI Tests
-        run: mvn test --file pom.xml
+          mvn test --file pom.xml
 
           
