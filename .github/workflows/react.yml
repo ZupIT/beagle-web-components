@@ -94,13 +94,10 @@ jobs:
           path: components
           repository: ZupIT/beagle-web-react
           ref: feature/automation-structure
-      # - name: Set up JDK 1.8
-      #   uses: actions/setup-java@v1
-      #   with:
-      #     java-version: 1.8
-      # - name: Move to UI Tests folder
-      #   run: |
-      #     cd components/tests/automatedTests
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
       - name: Start UI Tests
         run: |
           cd components/tests/automatedTests
