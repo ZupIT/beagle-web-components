@@ -19,8 +19,11 @@ class SampleTest() {
 
     @BeforeTest
     fun setup() {
-        System.setProperty(UtilResources.getProperties("nameDriver"),
-                UtilResources.getProperties("pathDriver") + UtilResources.getProperties("exeDriver"))
+        val driverEnvironment = System.getProperty("CHROMEWEBDRIVER")
+        System.out.println("!!!!CHROMEWEBDRIVER = " + driverEnvironment)
+        val path = System.getProperty(UtilResources.getProperties("nameDriver"))
+        System.out.println("!!!!DRIVER PATH = " + path)
+
         driver = ChromeDriver()
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
