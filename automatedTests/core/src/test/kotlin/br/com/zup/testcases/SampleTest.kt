@@ -5,6 +5,7 @@ import br.com.zup.webpages.HomePage
 import br.com.zup.webpages.ResultPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.testng.Assert
 import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
@@ -23,8 +24,9 @@ class SampleTest() {
         System.out.println("!!!!CHROMEWEBDRIVER = " + driverEnvironment)
         val path = System.getProperty(UtilResources.getProperties("nameDriver"))
         System.out.println("!!!!DRIVER PATH = " + path)
-
-        driver = ChromeDriver()
+        val options = ChromeOptions()
+        options.addArguments("--no-sandbox")
+        driver = ChromeDriver(options)
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
         driver.get("http://localhost:3000/?path=button")
