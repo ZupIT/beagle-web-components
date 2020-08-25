@@ -25,7 +25,7 @@ class SampleTest() {
         val path = System.getProperty(UtilResources.getProperties("nameDriver"))
         System.out.println("!!!!DRIVER PATH = " + path)
         val options = ChromeOptions()
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage")
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless")
         driver = ChromeDriver(options)
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
