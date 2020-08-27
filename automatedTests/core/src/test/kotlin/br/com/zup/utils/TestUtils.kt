@@ -8,10 +8,16 @@ import java.util.concurrent.TimeUnit
 object TestUtils {
 
     fun createDriver(url: String): WebDriver {
-//        System.setProperty(
-//                UtilResources.getProperties("nameDriver"),
-//                UtilResources.getProperties("pathDriver") +
-//                        UtilResources.getProperties("exeDriver"))
+        val driverKey = UtilResources.getProperties("nameDriver")
+        println("TESTE!!!!!!!!")
+        if (System.getProperty(driverKey)?.isEmpty() != false) {
+            System.setProperty(
+                    driverKey,
+                    UtilResources.getProperties("pathDriver") +
+                            UtilResources.getProperties("exeDriver"))
+        } else {
+            println(System.getProperty(driverKey))
+        }
 
         val options = ChromeOptions()
         options.addArguments(
