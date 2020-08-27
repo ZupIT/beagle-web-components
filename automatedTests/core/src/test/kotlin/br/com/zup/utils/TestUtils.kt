@@ -14,11 +14,11 @@ object TestUtils {
                         UtilResources.getProperties("exeDriver"))
 
         val options = ChromeOptions()
-//        options.addArguments(
-//                "--no-sandbox",
-//                "--disable-dev-shm-usage",
-//                "--headless"
-//        )
+        options.addArguments(
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                "--headless"
+        )
         val driver = ChromeDriver(options)
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
