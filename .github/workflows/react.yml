@@ -16,104 +16,93 @@
 
 name: Beagle React Automated Tests
 
-on: [push, pull_request, workflow_dispatch]
+#on: [push, pull_request, workflow_dispatch]
+on: workflow_dispatch
 
 jobs:
   test:
     runs-on: ubuntu-latest
     
     steps:
-      # - name: Start backend
-      #   run: |
-      #     echo $token | docker login $registry -u $user --password-stdin
-      #     docker run --rm -d -p 8080:8080 $registry/$backend_repository/$backend_image
-      #     docker logout $registry
-      #   env:
-      #     user: ${{ github.actor }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     registry: docker.pkg.github.com
-      #     backend_repository: zupit/beagle
-      #     backend_image: automated-test-backend
+      - name: Start backend
+        run: |
+          echo $token | docker login $registry -u $user --password-stdin
+          docker run --rm -d -p 8080:8080 $registry/$backend_repository/$backend_image
+          docker logout $registry
+        env:
+          user: ${{ github.actor }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          backend_repository: zupit/beagle
+          backend_image: automated-test-backend
 
-      # - name: Clear yarn cache
-      #   run: yarn cache clean
+      - name: Clear yarn cache
+        run: yarn cache clean
 
-      # # Checks-out beagle-web-core under $GITHUB_WORKSPACE
-      # - name: Checkout beagle-web-core
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: ZupIT/beagle-web-core
-      #     path: core
+      # Checks-out beagle-web-core under $GITHUB_WORKSPACE
+      - name: Checkout beagle-web-core
+        uses: actions/checkout@v2
+        with:
+          repository: ZupIT/beagle-web-core
+          path: core
 
-      # - name: Setup beagle-web-core
-      #   run: |
-      #     cd core
-      #     yarn
-      #     yarn build
-      #     cd dist
-      #     yarn link
+      - name: Setup beagle-web-core
+        run: |
+          cd core
+          yarn
+          yarn build
+          cd dist
+          yarn link
 
-      # # Checks-out beagle-react under $GITHUB_WORKSPACE
-      # - name: clone beagle-react
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: ZupIT/beagle-web-react
-      #     path: react
+      # Checks-out beagle-react under $GITHUB_WORKSPACE
+      - name: clone beagle-react
+        uses: actions/checkout@v2
+        with:
+          repository: ZupIT/beagle-web-react
+          path: react
 
-      # - name: Setup beagle-web-react
-      #   run: |
-      #     cd react
-      #     yarn link @zup-it/beagle-web
-      #     yarn
-      #     yarn build
-      #     cd dist
-      #     yarn link
-      #     cd ../node_modules/react
-      #     yarn link
-      #     cd ../react-dom
-      #     yarn link
-
-      # # Checks-out beagle-components under $GITHUB_WORKSPACE
-      # - name: clone beagle-components
-      #   uses: actions/checkout@v2
-      #   with:
-      #     path: components
-      
-      # - name: Start frontend
-      #   run: |
-      #     cd components/automatedTests/react
-      #     yarn link react react-dom @zup-it/beagle-web @zup-it/beagle-react
-      #     yarn
-      #   env:
-      #     REACT_APP_BASE_URL: http://localhost:8080
+      - name: Setup beagle-web-react
+        run: |
+          cd react
+          yarn link @zup-it/beagle-web
+          yarn
+          yarn build
+          cd dist
+          yarn link
+          cd ../node_modules/react
+          yarn link
+          cd ../react-dom
+          yarn link
 
       # Checks-out beagle-components under $GITHUB_WORKSPACE
-      # - name: clone beagle-web-components
-      #   uses: actions/checkout@v2
-      #   with:
-      #     path: components
-      #     repository: ZupIT/beagle-web-components
-      #     ref: feature/automation-structure
+      - name: clone beagle-components
+        uses: actions/checkout@v2
+        with:
+          path: components
+          # TODO remove this repository and branch
+          repository: ZupIT/beagle-web-components
+          ref: feature/automation-structure
+      
+      - name: Start frontend
+        run: |
+          cd components/automatedTests/react
+          yarn link react react-dom @zup-it/beagle-web @zup-it/beagle-react
+          yarn
+        env:
+          REACT_APP_BASE_URL: http://localhost:8080
 
-      # - name: Set up JDK 1.13
-      #   uses: actions/setup-java@v1
-      #   with:
-      #     java-version: 1.13
+      - name: Set up JDK 1.13
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.13
 
       - name: Set up Chrome driver
         uses: nanasess/setup-chromedriver@master
-
-      - name: Remove later
-        run: |
-          echo "JAVA_HOME = $JAVA_HOME"
-          echo "CHROMEWEBDRIVER = $CHROMEWEBDRIVER"
-          chromedriver
-          mvn -version
           
-      # - name: Start UI Tests
-      #   run: |
-      #     cd components/automatedTests/core 
-      #     mvn test
+      - name: Start UI Tests
+        run: |
+          cd components/automatedTests/core 
+          mvn test
 
 
           

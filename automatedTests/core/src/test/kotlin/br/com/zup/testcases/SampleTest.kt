@@ -20,16 +20,20 @@ class SampleTest() {
 
     @BeforeTest
     fun setup() {
-        val driverEnvironment = System.getProperty("CHROMEWEBDRIVER")
-        System.out.println("!!!!CHROMEWEBDRIVER = " + driverEnvironment)
-        val path = System.getProperty(UtilResources.getProperties("nameDriver"))
-        System.out.println("!!!!DRIVER PATH = " + path)
+        //configuration for dev machine, not necessary on the CI
+        System.setProperty(UtilResources.getProperties("nameDriver"),
+                UtilResources.getProperties("pathDriver") + UtilResources.getProperties("exeDriver"))
+
         val options = ChromeOptions()
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless")
+        options.addArguments(
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                "--headless"
+        )
         driver = ChromeDriver(options)
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
-        driver.get("http://localhost:3000/?path=button")
+        driver.get(UtilResources.getProperties("pageURL"))
 
     }
 
