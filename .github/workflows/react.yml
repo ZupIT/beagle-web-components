@@ -16,8 +16,8 @@
 
 name: Beagle React Automated Tests
 
-#on: [push, pull_request, workflow_dispatch]
-on: workflow_dispatch
+on: [push, pull_request, workflow_dispatch]
+#on: workflow_dispatch
 
 jobs:
   test:
@@ -67,19 +67,20 @@ jobs:
           yarn link @zup-it/beagle-web
           yarn
           yarn build
-          cd dist
+          cd packages/beagle-react/dist
+          #cd dist
           yarn link
-          cd ../node_modules/react
+          cd ../../../node_modules/react
           yarn link
           cd ../react-dom
           yarn link
 
+      # TODO remove this repository and branch
       # Checks-out beagle-components under $GITHUB_WORKSPACE
       - name: clone beagle-components
         uses: actions/checkout@v2
         with:
           path: components
-          # TODO remove this repository and branch
           repository: ZupIT/beagle-web-components
           ref: feature/automation-structure
       
