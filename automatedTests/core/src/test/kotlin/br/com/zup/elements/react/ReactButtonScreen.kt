@@ -8,16 +8,16 @@ import org.openqa.selenium.support.PageFactory
 
 class ReactButtonScreen(private val driver: WebDriver): ButtonScreen {
 
-    @FindBy(xpath = "//button[@data-beagle-id='_beagle_2']")
+    @FindBy(xpath = "//button[@data-beagle-id='_beagle_4']")
     override val buttonDefault: WebElement? = null
 
-    @FindBy(xpath = "//button[@data-beagle-id='_beagle_3']")
+    @FindBy(xpath = "//button[@data-beagle-id='_beagle_5']")
     override val buttonWithStyle: WebElement? = null
 
-    @FindBy(xpath = "//button[@data-beagle-id='_beagle_4']")
+    @FindBy(xpath = "//button[@data-beagle-id='_beagle_6']")
     override val buttonWithAppearance: WebElement? = null
 
-    @FindBy(xpath = "//button[@data-beagle-id='_beagle_5']")
+    @FindBy(xpath = "//button[@data-beagle-id='_beagle_7']")
     override val buttonWithAppearanceAndStyle: WebElement? = null
 
     @FindBy(xpath = "/html/body/div/div/p")
