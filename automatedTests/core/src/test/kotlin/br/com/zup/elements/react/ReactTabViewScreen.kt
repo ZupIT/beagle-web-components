@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory
 
 class ReactTabViewScreen(private val driver: WebDriver): TabViewScreen {
 
-    @FindBy(xpath = "/html/body/div/div/div/div[1]")
+    @FindBy(xpath = "/html/body/div/div/div/div[1]/div[1]")
     override val tab1Text: WebElement? = null
 
     @FindBy(xpath = "/html/body/div/div/div/div[1]/div[3]/div/p[1]")
