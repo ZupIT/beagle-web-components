@@ -17,6 +17,8 @@
     }
   },
   "devDependencies": {
+    "cypress": "^5.2.0",
+    "cypress-cucumber-preprocessor": "^2.5.5",
     "husky": "^4.2.5"
   }
 }
