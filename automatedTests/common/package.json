@@ -1,0 +1,20 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn run test:angular && yarn run test:react",
+    "test:react": "cypress run --browser chrome --headless --env baseUrl=http://localhost:3000/?path=button",
+    "test:angular": "cypress run --browser chrome --headless --env baseUrl=http://localhost:4200/?path=button"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^5.2.0",
+    "cypress-cucumber-preprocessor": "^2.5.5"
+  }
+}
