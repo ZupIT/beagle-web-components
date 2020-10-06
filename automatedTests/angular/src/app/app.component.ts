@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoadParams } from '@zup-it/beagle-web';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +8,10 @@ import { LoadParams } from '@zup-it/beagle-web';
 export class AppComponent {
   title = 'beagle-automated-tests-angular';
 
-  loadParams: LoadParams;
-  queryParams = new URLSearchParams(window.location.search);
+  route: string;
+  private queryParams = new URLSearchParams(window.location.search);
 
   constructor() {
-    this.loadParams = {
-      path: this.queryParams.get('path') || '/payload.json'
-    };
+    this.route = this.queryParams.get('path') || '';
   }
 }

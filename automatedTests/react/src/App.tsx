@@ -5,11 +5,11 @@ import BeagleService from './beagle/beagle-service';
 function App() {
   const windowUrl = window.location.search;
   const queryParams = new URLSearchParams(windowUrl);
-  const path = queryParams.get("path") || '/payload.json'
+  const route = queryParams.get("path") || '/payload.json'
 
   return (
     <BeagleProvider value={BeagleService}>
-      <BeagleRemoteView path={path} />
+      <BeagleRemoteView route={route} />
     </BeagleProvider>
   );
 }
