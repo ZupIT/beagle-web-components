@@ -3,12 +3,12 @@
   "version": "8.2.13",
   "scripts": {
     "ng": "ng",
-    "start": "yarn serve",
+    "start": "yarn serve --4201",
     "build": "yarn beagle view-engine && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "yarn beagle view-engine && ng serve"
+    "serve": "yarn beagle view-engine && ng serve --port 4201"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +20,7 @@
     "@angular/platform-browser": "8.2.13",
     "@angular/platform-browser-dynamic": "8.2.13",
     "@angular/router": "8.2.13",
-    "@zup-it/beagle-angular": "1.2.0",
+    "@zup-it/beagle-angular": "1.1.3",
     "rxjs": "~6.6.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
