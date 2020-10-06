@@ -8,11 +8,6 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "scripts": {
-    "test": "cd automatedTests/common && yarn test",
-    "test:react": "cd automatedTests/common && yarn test:react",
-    "test:angular": "cd automatedTests/common && yarn test:angular"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "sh ./bin/check-license.sh"
