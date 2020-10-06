@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "yarn serve",
     "build": "yarn beagle view-engine && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
