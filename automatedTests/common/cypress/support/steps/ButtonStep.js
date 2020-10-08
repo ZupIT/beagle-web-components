@@ -22,9 +22,20 @@ import ButtonPage from '../pageobjects/ButtonPage'
 const buttonPage = new ButtonPage
 
 Given("that I'm on the button screen", () => {
-    buttonPage.init();
+  buttonPage.init()
+})
+
+When(/I click on button (.*)/, (buttonText) => {
+  buttonPage.clickButton(buttonText)
 })
 
 Then("all my button components should render their respective text attributes correctly", () => {
-    buttonPage.checkElementButtonExist();
+  buttonPage.checkButton('Button')
+  buttonPage.checkButton('Button with style')
+  buttonPage.checkButton('Button with Appearance')
+  buttonPage.checkButton('Button with Appearance and style')
+})
+
+Then('component should render the action attribute correctly', () => {
+  buttonPage.checkButtonAction()
 })

@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
- class ButtonElements {
-    button = () => { return 'button' }
+const buttonElements = {
+  buttons: () => cy.get('button'),
+  buttonWithText: (text) => cy.contains('button', text),
+  paragraphWithText: (text) => cy.contains('p', text)
 }
 
-export default ButtonElements;
+export default buttonElements
