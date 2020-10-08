@@ -16,25 +16,16 @@
 
 /// <reference types="Cypress" />
 
-import buttonElements from '../elements/button-elements'
-import BeaglePage from './BeaglePage'
+const url = Cypress.env("baseUrl")
 
-class ButtonPage extends BeaglePage {
-  constructor() {
-    super('button')
-  }
+class BeaglePage {
+    constructor(path) {
+      this.path = path
+    }
 
-  checkButton(text) {
-    buttonElements.buttonWithText(text).should('exist')
-  }
-
-  clickButton(text) {
-    buttonElements.buttonWithText(text).click()
-  }
-
-  checkButtonAction() {
-    buttonElements.paragraphWithText('You clicked right').should('exist')
-  }
+    init() {
+      cy.visit(`${url}?path=${this.path}`)
+    }
 }
 
-export default ButtonPage
+export default BeaglePage;

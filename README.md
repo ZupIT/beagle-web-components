@@ -24,7 +24,7 @@ yarn
 ```
 
 You will also need to clone the Beagle main repository in order to run the backend services. The
-backend services is responsible for serving the views for our tests.
+backend services are responsible for serving the views for our tests.
 
 ```bash
 git clone git@github.com:ZupIT/beagle.git
