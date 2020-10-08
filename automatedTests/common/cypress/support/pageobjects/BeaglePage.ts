@@ -14,10 +14,18 @@
  * limitations under the License.
  */
 
-const buttonElements = {
-  buttons: () => cy.get('button'),
-  buttonWithText: (text) => cy.contains('button', text),
-  paragraphWithText: (text) => cy.contains('p', text)
+const url = Cypress.env('baseUrl')
+
+class BeaglePage {
+  private path: string
+  
+  constructor(path: string) {
+    this.path = path
+  }
+
+  init() {
+    cy.visit(`${url}?path=${this.path}`)
+  }
 }
 
-export default buttonElements
+export default BeaglePage;

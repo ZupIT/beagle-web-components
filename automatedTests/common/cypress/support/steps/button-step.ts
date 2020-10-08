@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
- 
-/* global Given, Then, When */
-
 import ButtonPage from '../pageobjects/ButtonPage'
 
 const buttonPage = new ButtonPage
