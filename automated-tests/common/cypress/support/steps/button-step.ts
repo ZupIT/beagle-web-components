@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import ButtonPage from '../pageobjects/ButtonPage'
+import ButtonPage from '../page-objects/ButtonPage'
 
 const buttonPage = new ButtonPage
 
