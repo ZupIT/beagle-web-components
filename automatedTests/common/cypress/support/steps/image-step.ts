@@ -14,26 +14,19 @@
  * limitations under the License.
  */
 
-import ButtonPage from '../pageobjects/ButtonPage'
+import ButtonPage from '../pageobjects/ImagePage'
 
 const buttonPage = new ButtonPage
 
-Given("that I'm on the button screen", () => {
+Given("that I'm on the image screen", () => {
   buttonPage.init()
 })
 
-When(/I click on button (.*)/, (buttonText) => {
-  buttonPage.clickButton(buttonText)
-})
-
-Then("all my button components should render their respective text attributes correctly", () => {
-  buttonPage.checkNumberOfButtons(4)
-  buttonPage.checkButton('Button')
-  buttonPage.checkButton('Button with style')
-  buttonPage.checkButton('Button with Appearance')
-  buttonPage.checkButton('Button with Appearance and style')
-})
-
-Then('component should render the action attribute correctly', () => {
-  buttonPage.checkButtonAction()
+Then("image screen should render all image attributes correctly", () => {
+  buttonPage.checkNumberOfImages(5)
+  buttonPage.checkCenterCropImage()
+  buttonPage.checkCenterImage()
+  buttonPage.checkFitCenterImage()
+  buttonPage.checkFitXyImage()
+  buttonPage.checkGenericImage()
 })
