@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/// <reference types="Cypress" />
-
 import buttonElements from '../elements/button-elements'
 import BeaglePage from './BeaglePage'
 
@@ -24,11 +22,11 @@ class ButtonPage extends BeaglePage {
     super('button')
   }
 
-  checkButton(text) {
+  checkButton(text: string) {
     buttonElements.buttonWithText(text).should('exist')
   }
 
-  clickButton(text) {
+  clickButton(text: string) {
     buttonElements.buttonWithText(text).click()
   }
 

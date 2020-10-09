@@ -2,7 +2,6 @@
   "name": "common",
   "version": "1.0.0",
   "description": "runner",
-  "main": "index.js",
   "scripts": {
     "test": "yarn run test:angular:9 && yarn run test:react && yarn run test:angular:8",
     "test:react": "cypress run --browser chrome --headless --env baseUrl=http://localhost:3000",
@@ -15,8 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/cypress-cucumber-preprocessor": "^1.14.1",
     "cypress": "^5.2.0",
-    "cypress-cucumber-preprocessor": "^2.5.5"
+    "cypress-cucumber-preprocessor": "^2.5.5",
+    "typescript": "^4.0.3"
   }
 }
