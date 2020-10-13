@@ -4,9 +4,9 @@
   "description": "runner",
   "scripts": {
     "test": "yarn run test:angular:9 && yarn run test:react && yarn run test:angular:8",
-    "test:react": "cypress run --browser chrome --headless --env baseUrl=http://localhost:3000",
-    "test:angular:9": "cypress run --browser chrome --headless --env baseUrl=http://localhost:4200",
-    "test:angular:8": "cypress run --browser chrome --headless --env baseUrl=http://localhost:4201"
+    "test:react": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:3000",
+    "test:angular:9": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:4200",
+    "test:angular:8": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:4201"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/steps"

@@ -70,9 +70,11 @@ To run the tests themselves, under the directory `automatedTests/common`, use th
 # run all tests
 yarn test
 # run only tests for angular
-yarn test:angular
+yarn test:angular:9
 # run only tests for react
 yarn test:react
+# run a specific feature
+yarn test:angular:9 TAGS="@pageview"
 ```
 
 When running the tests for the first time, it will take a while to check the installation of
