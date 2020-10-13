@@ -14,29 +14,13 @@
  * limitations under the License.
  */
 
-import buttonElements from '../elements/button-elements'
-import BeaglePage from './BeaglePage'
-
-class ButtonPage extends BeaglePage {
-  constructor() {
-    super('button')
-  }
-
-  checkNumberOfButtons(quantity: number) {
-    buttonElements.buttons().should('have.length', quantity)
-  }
-
-  checkButton(text: string) {
-    buttonElements.buttonWithText(text).should('exist')
-  }
-
-  clickButton(text: string) {
-    buttonElements.buttonWithText(text).click()
-  }
-
-  checkButtonAction() {
-    buttonElements.paragraphWithText('You clicked right').should('exist')
-  }
+const imageElements = {
+  images: () => cy.get('img'),
+  genericImage: () => cy.get('img').first(),
+  fitXyImage: () => cy.get('img').eq(1),
+  fitCenterImage: () => cy.get('img').eq(2),
+  centerCropImage: () => cy.get('img').eq(3),
+  centerImage: () => cy.get('img').eq(4),
 }
 
-export default ButtonPage
+export default imageElements
