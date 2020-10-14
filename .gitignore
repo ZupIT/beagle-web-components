@@ -21,3 +21,4 @@ yarn.lock
 dist/
 **/nohup.out
 .DS_Store
+screenshots/
