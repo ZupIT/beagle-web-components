@@ -14,19 +14,8 @@
  * limitations under the License.
  */
 
-import ImagePage from '../page-objects/ImagePage'
+const simpleFormElements = {
+  
+}
 
-const imagePage = new ImagePage
-
-Given("that I'm on the image screen", () => {
-  imagePage.init()
-})
-
-Then("image screen should render all image attributes correctly", () => {
-  imagePage.checkNumberOfImages(5)
-  imagePage.checkCenterCropImage()
-  imagePage.checkCenterImage()
-  imagePage.checkFitCenterImage()
-  imagePage.checkFitXyImage()
-  imagePage.checkGenericImage()
-})
+export default simpleFormElements
