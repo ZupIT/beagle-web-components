@@ -8,9 +8,6 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "sh ./bin/check-license.sh"

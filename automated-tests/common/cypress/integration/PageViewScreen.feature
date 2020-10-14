@@ -5,7 +5,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#  http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,11 +14,15 @@
 # limitations under the License.
 #
 
-node_modules/
-package-lock.json
-yarn-error.log
-yarn.lock
-dist/
-**/nohup.out
-.DS_Store
-screenshots/
+@pageview @regression
+Feature: PageView Component Validation
+
+    As a Beagle developer/user
+    I'd like to make sure my pageView component works as expected
+    In order to guarantee that my application never fails
+
+    Background:
+        Given that I'm on the pageview screen
+
+    Scenario: PageView 01 - PageView component renders text attribute correctly
+        Then my pageview components should render their respective pages attributes correctly
