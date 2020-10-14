@@ -14,19 +14,38 @@
  * limitations under the License.
  */
 
-import ImagePage from '../page-objects/ImagePage'
+import SimpleFormPage from '../page-objects/SimpleFormPage'
 
-const imagePage = new ImagePage
+const simpleFormPage = new SimpleFormPage
 
-Given("that I'm on the image screen", () => {
-  imagePage.init()
+Given("that I'm on the simple form screen", () => {
+  simpleFormPage.init()
 })
 
-Then("image screen should render all image attributes correctly", () => {
-  imagePage.checkNumberOfImages(5)
-  imagePage.checkCenterCropImage()
-  imagePage.checkCenterImage()
-  imagePage.checkFitCenterImage()
-  imagePage.checkFitXyImage()
-  imagePage.checkGenericImage()
+When(/I click on input with hint (.*)/, (hint) => {
+  
+})
+
+And(/insert text (.*)/, (text) => {
+  
+})
+
+And('I click on input with hint Street', () => {
+  
+})
+
+And('hide keyboard', () => {
+  
+})
+
+And('I click on button Enviar', () => {
+  
+})
+
+Then("all my simple form components should render their respective text attributes correctly", () => {
+  
+})
+
+Then('confirm popup should appear correctly', () => {
+  
 })

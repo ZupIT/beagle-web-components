@@ -15,7 +15,7 @@ First, clone this repo, then use yarn (or npm) to install the dependencies.
 git clone git@github.com:ZupIT/beagle-web-components.git
 cd beagle-web-components
 yarn
-cd automatedTests/angular
+cd automated-tests/angular9
 yarn
 cd ../react
 yarn
@@ -52,18 +52,18 @@ The second step is to run the applications you want to test. To run angular, go 
 
 ```bash
 # angular
-cd automatedTests/angular
+cd automated-tests/angular9
 yarn start
 ```
 
 ```bash
 # react
-cd automatedTests/react
+cd automated-tests/react
 yarn start
 ```
 
 #### Tests
-To run the tests themselves, under the directory `automatedTests/common`, use the command
+To run the tests themselves, under the directory `automated-tests/common`, use the command
 `yarn test`.
 
 ```bash
@@ -81,9 +81,9 @@ When running the tests for the first time, it will take a while to check the ins
 Cypress. If it fails with a timeout, please try again.
 
 ## Structure
-All tests are placed under the directory `automatedTests`, which has the following structure:
+All tests are placed under the directory `automated-tests`, which has the following structure:
 
-- angular: angular application to serve as a basis to run the tests related to the angular
+- angular9: angular application to serve as a basis to run the tests related to the angular
 components.
 - react: react application to serve as a basis to run the tests related to the react components.
 - common: the tests themselves.
