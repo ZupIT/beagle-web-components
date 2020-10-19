@@ -28,7 +28,6 @@ const touchablePage = new TouchablePage
   
   When(/I click on touchable text (.*)/, () => {
     touchablePage.clickTouchableText()
-
   })
 
   And(/I have an image with (.*) configured/, () => {
