@@ -23,29 +23,27 @@ Given("that I'm on the simple form screen", () => {
 })
 
 When(/I click on input with hint (.*)/, (hint) => {
-  
+  simpleFormPage.clickInputHint(hint)
 })
 
-And(/insert text (.*)/, (text) => {
-  
+When(/insert text (.*)/, (text) => {
+  simpleFormPage.typeInput(text)
 })
 
 And('I click on input with hint Street', () => {
-  
+  simpleFormPage.clickInputHint('Street')
 })
 
-And('hide keyboard', () => {
-  
-})
-
-And('I click on button Enviar', () => {
-  
+When('I click on button Enviar', () => {
+   simpleFormPage.clickButton() 
 })
 
 Then("all my simple form components should render their respective text attributes correctly", () => {
-  
+  simpleFormPage.checkNumberOfInputs(7)
+  simpleFormPage.checkInput('ZIP')
+  simpleFormPage.checkInput('Street')
 })
 
 Then('confirm popup should appear correctly', () => {
-  
+  simpleFormPage.checkAlert()
 })

@@ -30,16 +30,14 @@ Feature: SimpleForm Component Validation
 
     Scenario Outline: SimpleForm 02 - SimpleForm component renders action attribute correctly
         When I click on input with hint <textFieldText>
-        And insert text <textValue>
+        And insert text <textValue> 
         And I click on input with hint Street
-        And hide keyboard
         And I click on button Enviar
         Then confirm popup should appear correctly
 
         Examples:
-            |textFieldText  | textValue |
-            |ZIP            | 38408480  |
-    
+            |textFieldText  | textValue | streetValue |
+            |ZIP            | 38408480  | Street      |
  #   |Street         |
  #   |Number         |
  #   |Neighborhood   |

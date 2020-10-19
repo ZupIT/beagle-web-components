@@ -14,8 +14,16 @@
  * limitations under the License.
  */
 
+import { eq } from "cypress/types/lodash"
+
 const simpleFormElements = {
-  
+    inputs: () => cy.get('input'),
+    button: () => cy.get('button'),
+    inputHint:(hint: string) => cy.get(`input[placeholder=${hint}]`),
+    verifyAlert:() => cy.on('window:alert', (str) => {
+        cy.get('button').click()
+        if(expect(str).to.equal(`The form was successfully!`)){ cy.get('button').click() }
+    }) 
 }
 
 export default simpleFormElements

@@ -22,7 +22,29 @@ class SimpleFormPage extends BeaglePage {
     super('simpleform')
   }
 
+  typeInput(text){
+    simpleFormElements.inputHint('ZIP').type(`${text}`)
+  }
 
+  checkNumberOfInputs(quantity: number){
+    simpleFormElements.inputs().should('have.length', quantity)
+  }
+
+  checkInput(hint: string) {
+    simpleFormElements.inputHint(hint)
+  }
+
+  checkAlert() {
+    simpleFormElements.verifyAlert()
+  }
+
+  clickInputHint(hint){
+    simpleFormElements.inputHint(hint).click()
+  }
+
+  clickButton() {
+    simpleFormElements.button().click()
+  }
 }
 
 export default SimpleFormPage
