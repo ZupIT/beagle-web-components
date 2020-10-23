@@ -51,3 +51,12 @@ Feature: Send Request Action Validation
         Examples:
             | buttonTitle                               | alertTitle |
             | request with success using expression URL | Success    |
+
+    Scenario Outline: Send Request 04 - The send request action get some result and show alert when setting the
+    METHOD as an expression
+        When I press the <buttonTitle> button
+        Then the screen should show some alert with <alertTitle> title
+
+        Examples:
+            | buttonTitle                    | alertTitle |
+            | request with expression method | Success    |
