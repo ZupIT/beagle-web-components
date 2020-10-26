@@ -26,14 +26,14 @@ const sendRequestPage = new SendRequestPage
     sendRequestPage.clickButton(text)
   })
 
-  Then(/the screen should show some alert with (.*) title/, (title) => {
-    sendRequestPage.checkAlert(title)
+  Then(/the screen should show some alert with (.*) message/, (message) => {
+    sendRequestPage.checkAlert(message)
   })
 
   Then(/the pressed button changes it's (.*) title to didFinish/, () => {
     sendRequestPage.checkButton()
   })
 
-  Then(/the screen should show some alert with (.*) title/, (message) => {
+  Then(/the screen should show some alert with (.*) message/, (message) => {
     sendRequestPage.checkAlert(message)
   })

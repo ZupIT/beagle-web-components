@@ -18,16 +18,23 @@ import SendRequestElements from '../elements/Send-Request-elements'
 import BeaglePage from './BeaglePage'
 
 class SendRequestPage extends BeaglePage {
+  lastAlertMessage = ''
   constructor() {
     super('send-request')
+  }
+  
+  init() {
+    return super.init().then(() => {
+      cy.on('window:alert', message => this.lastAlertMessage = message)
+    })
   }
 
   clickButton(text: string) {
     SendRequestElements.buttonWithText(text).click()
   }
 
-  checkAlert(title: String){
-    SendRequestElements.verifyAlert(title)
+  checkAlert(message: String){
+    expect(this.lastAlertMessage).to.equal(message)
   }
   
   checkButton(){

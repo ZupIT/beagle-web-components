@@ -17,9 +17,6 @@
 const SendRequestElements = {
     buttons: () => cy.get('button'),
     buttonWithText: (text: string) => cy.contains('button', text),
-    verifyAlert:(title) => cy.on('window:alert', (str) => {
-        if(expect(str).to.equal(title)){ cy.get('button').click() }
-    }) 
   }
   
   export default SendRequestElements

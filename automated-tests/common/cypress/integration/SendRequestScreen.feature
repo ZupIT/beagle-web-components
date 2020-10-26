@@ -26,12 +26,12 @@ Feature: Send Request Action Validation
 
     Scenario Outline: Send Request 01 - The send request action get some result and show alert
         When I press the <buttonTitle> button
-        Then the screen should show some alert with <alertTitle> title
+        Then the screen should show some alert with <alertMessage> message
 
         Examples:
-            | buttonTitle          | alertTitle |
-            | request with success | Success    |
-            | request with error   | Error      |
+            | buttonTitle          | alertMessage          |
+            | request with success | onFinish with success |
+            | request with error   | onFinish with error   |
 
 
     Scenario Outline: Send Request 02 - The send request onFinish action get some result and modify the pressed button
@@ -46,17 +46,17 @@ Feature: Send Request Action Validation
     Scenario Outline: Send Request 03 - The send request action get some result and show alert setting the
     URL as an expression
         When I press the <buttonTitle> button
-        Then the screen should show some alert with <alertTitle> title
+        Then the screen should show some alert with <alertMessage> message
 
         Examples:
-            | buttonTitle                               | alertTitle |
-            | request with success using expression URL | Success    |
+            | buttonTitle                               | alertMessage          |
+            | request with success using expression URL | onFinish with success |
 
     Scenario Outline: Send Request 04 - The send request action get some result and show alert when setting the
     METHOD as an expression
         When I press the <buttonTitle> button
-        Then the screen should show some alert with <alertTitle> title
+        Then the screen should show some alert with <alertMessage> message
 
         Examples:
-            | buttonTitle                    | alertTitle |
-            | request with expression method | Success    |
+            | buttonTitle                    | alertMessage          |
+            | request with expression method | onFinish with success |
