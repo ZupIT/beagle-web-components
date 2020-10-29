@@ -50,6 +50,18 @@ class TextInputPage extends BeaglePage {
     textInputElements.valueOfHint(isInputNumber).should('have.attr','type', 'NUMBER') 
   }
 
+  checkEvents(hint: string, didOnFocus: string, didOnChange: string){
+    textInputElements.valueOfHint(hint).click()
+    textInputElements.valueOfInput(didOnFocus).should('exist')
+    textInputElements.valueOfHint(hint).type('teste')
+    textInputElements.valueOfInput(didOnChange).should('exist')
+  }
+
+  checkOnblur(didOnBlur: string){
+    textInputElements.valueOfInput('TextInput test').click()
+    textInputElements.valueOfInput(didOnBlur).should('exist')
+  }
+
   checkHidenInput(isHiden: string){
     textInputElements.valueOfInput(isHiden).should('not.be.visible')
   }

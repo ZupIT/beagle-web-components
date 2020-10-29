@@ -50,6 +50,14 @@ Then(/validate textInput component of type number with text (.*)/, (isInputNumbe
     textInputPage.checkNumberInput(isInputNumber)  
 })
 
+When(/I click to textInput with the placeholder (.*) then change to (.*) and to (.*)/, (hint, didOnFocus, didOnChange) => {
+    textInputPage.checkEvents(hint, didOnFocus, didOnChange)
+})
+
+Then(/the text (.*) should be appear/, (didOnblur) => {
+    textInputPage.checkOnblur(didOnblur)  
+})
+
 Then(/The hidden input fields (.*) should not be visible/, (isHiden) => {
     textInputPage.checkHidenInput(isHiden)
 })

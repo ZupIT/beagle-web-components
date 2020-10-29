@@ -57,7 +57,7 @@ Feature: TextInput Validation
             | is Read Only                 |
             | is Read Only with expression |
 
-#   This behavior does not need to be tested for the web.
+#   This behavior does not exist on the web
 #
 #   Scenario Outline: TextInput 05 - validate keyboard appears on Focus
 #       When I click in the textInput with the placeholder <textInputSecondPlan>
