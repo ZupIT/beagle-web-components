@@ -15,7 +15,6 @@
  */
 
 const textElements = {
-    texts:() => cy.get('p'),
     toHaveText: (text: string) => cy.contains('p', text),
 }
 

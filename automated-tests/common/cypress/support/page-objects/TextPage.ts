@@ -25,16 +25,19 @@ class TextPage extends BeaglePage {
   checkText(text: string){  
     textlements.toHaveText(text)
   }
+
   checkTextColor(text: string){  
-    textlements.toHaveText(text).should('have.attr', 'style','color: rgb(136, 136, 136);')
+    textlements.toHaveText(text).should('have.attr', 'style','color: rgb(136, 136, 136); text-align: inherit;')
   }
 
   checkTextAlignmentLeft(text: string){
     textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: left;')
   }
+
   checkTextAlignmentCenter(text: string){
     textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: center;')
   }
+  
   checkTextAlignmentRight(text: string){
     textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: right;')
   }

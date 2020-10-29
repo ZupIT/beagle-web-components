@@ -30,11 +30,11 @@ Feature: Text Component Validation
     Scenario: Text 02 - Text component renders text via expression correctly
         Then my text component should render their respective text via expression correctly
 
-#    Scenario: Text 03 - Text component renders text with textColor correctly
-#        Then my text component should render their respective text with textColor correctly
+    Scenario: Text 03 - Text component renders text with textColor correctly
+        Then my text component should render their respective text with textColor correctly
 
-#    Scenario: Text 04 - Text component renders text with textColor via expression correctly
-#        Then my text component should render their respective text with textColor via expression correctly
+    Scenario: Text 04 - Text component renders text with textColor via expression correctly
+       Then my text component should render their respective text with textColor via expression correctly
     
     Scenario: Text 05 - Text component renders text with textAlignment left center and right correctly
         Then my text component should render their respective text with textAlignment LEFT correctly

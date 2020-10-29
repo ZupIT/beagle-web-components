@@ -50,7 +50,6 @@ Then("my text component should render their respective text with textAlignment R
     textPage.checkTextAlignmentRight('hello world with textAlignment RIGHT')
 })
 
-//
 Then("my text component should render their respective text with textAlignment LEFT via expression correctly", () => {   
     textPage.checkTextAlignmentLeft('hello world with textAlignment LEFT via expression')
 })
