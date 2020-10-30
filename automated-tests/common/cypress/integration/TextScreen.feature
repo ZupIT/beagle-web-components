@@ -22,34 +22,32 @@ Feature: Text Component Validation
     In order to guarantee that my application never fails
 
     Background:
-        Given that I'm on the text screen
+        Given the Beagle application did launch with the texts on screen
 
-    Scenario: Text 01 - Text component renders text attribute correctly
-        Then my text component must render its respective text attribute correctly
+    Scenario Outline: Text 01 - Text component renders text attribute correctly
+        Then my text component must render its respective <textAttribute> correctly
 
-    Scenario: Text 02 - Text component renders text via expression correctly
-        Then my text component should render their respective text via expression correctly
+        Examples:
+            | textAttribute             |
+            | Text value                |
+            | Text value via expression |
 
-    Scenario: Text 03 - Text component renders text with textColor correctly
-        Then my text component should render their respective text with textColor correctly
+    Scenario Outline: Text 02 - Text component renders text with textColor correctly
+        Then my text component should render their respective <textWithColor> correctly
+ 	
+	Examples
+            | textAttributeWithColor       |
+            | TextWithColor                |
+            | TextWithColor via expression |
+   
+    Scenario Outline: Text 03 - Text component renders text with textAlignment correctly
+        Then my text component should render their respective <textAttribute> with textAlignment at <Positon> correctly
 
-    Scenario: Text 04 - Text component renders text with textColor via expression correctly
-       Then my text component should render their respective text with textColor via expression correctly
-    
-    Scenario: Text 05 - Text component renders text with textAlignment left center and right correctly
-        Then my text component should render their respective text with textAlignment LEFT correctly
-
-    Scenario: Text 06 - Text component renders text with textAlignment CENTER correctly
-        Then my text component should render their respective text with textAlignment CENTER correctly
-
-    Scenario: Text 07 - Text component renders text with textAlignment RIGHT correctly
-        Then my text component should render their respective text with textAlignment RIGHT correctly
-
-    Scenario: Text 08 - Text component renders text with textAlignment LEFT via expression correctly
-        Then my text component should render their respective text with textAlignment LEFT via expression correctly
-
-    Scenario: Text 09 - Text component renders text with textAlignment CENTER via expression correctly
-        Then my text component should render their respective text with textAlignment CENTER via expression correctly
-
-    Scenario: Text 10 - Text component renders text with textAlignment RIGHT via expression correctly
-        Then my text component should render their respective text with textAlignment RIGHT via expression correctly            
+	    Examples:
+            | textAttribute                    | Positon |
+            | TextAlignedLeft                  | LEFT 	 | 
+            | TextAlignedCenter                | CENTER  |
+	        | TextAlignedRight                 | RIGHT   | 
+	        | TextAlignedLeft via expression   | LEFT    |
+            | TextAlignedCenter via expression | CENTER  |
+	        | TextAlignedRight  via expression | RIGHT   |         
