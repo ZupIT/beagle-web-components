@@ -58,7 +58,7 @@ class TextInputPage extends BeaglePage {
     textInputElements.inputByPlaceholder(placeholder).should('have.value',`${event}`) 
   }
 
-  TypeInputByPlaceholder(placeholder: string){
+  typeInputByPlaceholder(placeholder: string){
     textInputElements.inputByPlaceholder(placeholder).type('test') 
   }
   
