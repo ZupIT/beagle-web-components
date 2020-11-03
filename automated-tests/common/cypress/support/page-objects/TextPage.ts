@@ -22,25 +22,25 @@ class TextPage extends BeaglePage {
     super('text')
   }
 
-  checkText(text: string){  
-    textlements.toHaveText(text)
+  checkTextOnScreen(text: string){  
+    textlements.textByValue(text)
   }
 
-  checkTextColor(text: string){  
-    textlements.toHaveText(text).should('have.attr', 'style','color: rgb(136, 136, 136); text-align: inherit;')
-  }
+  // checkTextColor(text: string){  
+  //   textlements.toHaveText(text).should('have.attr', 'style','color: rgb(136, 136, 136); text-align: inherit;')
+  // }
 
-  checkTextAlignmentLeft(text: string){
-    textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: left;')
-  }
+  // checkTextAlignmentLeft(text: string){
+  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: left;')
+  // }
 
-  checkTextAlignmentCenter(text: string){
-    textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: center;')
-  }
+  // checkTextAlignmentCenter(text: string){
+  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: center;')
+  // }
   
-  checkTextAlignmentRight(text: string){
-    textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: right;')
-  }
+  // checkTextAlignmentRight(text: string){
+  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: right;')
+  // }
 
 } 
 

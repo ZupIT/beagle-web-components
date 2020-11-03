@@ -15,7 +15,9 @@
  */
 
 const textElements = {
-    toHaveText: (text: string) => cy.contains('p', text),
+    textByValue: (value: string) => cy.get(`[ng-reflect-text="${value}"]`),  
+
+    
 }
 
 export default textElements

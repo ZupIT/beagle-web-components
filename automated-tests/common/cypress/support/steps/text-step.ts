@@ -18,46 +18,19 @@ import TextPage from '../page-objects/TextPage'
 
 const textPage = new TextPage
 
-Given("that I'm on the text screen", () => {
+Given("the Beagle application did launch with the texts on screen", () => {
     textPage.init()
 })
 
-Then("my text component must render its respective text attribute correctly", () => {
-    textPage.checkText('hello world')
+Then(/my text component must render its respective (.*) correctly/, (textAttribute) => {
+    textPage.checkTextOnScreen(textAttribute)
 })
 
-Then("my text component should render their respective text via expression correctly", () => {   
-    textPage.checkText('hello world via expression')
-})
+// Then(/my text component (.*) should render their respective color (.*) correctly/, () => {   
+//     //textPage.checkText('hello world via expression')
+// })
 
-Then("my text component should render their respective text with textColor correctly", () => {   
-    textPage.checkTextColor('hello world via expression')
-})
+// Then(/my text component should render their respective (.*) with textAlignment at (.*) correctly/, () => {   
+//     //textPage.checkTextColor('hello world via expression')
+// })
 
-Then("my text component should render their respective text with textColor via expression correctly", () => {   
-    textPage.checkTextColor('hello world via expression')
-})
-
-Then("my text component should render their respective text with textAlignment LEFT correctly", () => {   
-    textPage.checkTextAlignmentLeft('hello world with textAlignment LEFT')
-})
-
-Then("my text component should render their respective text with textAlignment CENTER correctly", () => {   
-    textPage.checkTextAlignmentCenter('hello world with textAlignment CENTER')
-})
-
-Then("my text component should render their respective text with textAlignment RIGHT correctly", () => {   
-    textPage.checkTextAlignmentRight('hello world with textAlignment RIGHT')
-})
-
-Then("my text component should render their respective text with textAlignment LEFT via expression correctly", () => {   
-    textPage.checkTextAlignmentLeft('hello world with textAlignment LEFT via expression')
-})
-
-Then("my text component should render their respective text with textAlignment CENTER via expression correctly", () => {   
-    textPage.checkTextAlignmentCenter('hello world with textAlignment CENTER via expression')
-})
-
-Then("my text component should render their respective text with textAlignment RIGHT via expression correctly", () => {   
-    textPage.checkTextAlignmentRight('hello world with textAlignment RIGHT via expression')
-})
