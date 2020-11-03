@@ -22,8 +22,8 @@ class TextPage extends BeaglePage {
     super('text')
   }
 
-  checkTextOnScreen(text: string){  
-    textlements.textByValue(text)
+  checkTextIsOnScreen(text: string){  
+    textlements.textByValue(text).should('exist')
   }
 
   // checkTextColor(text: string){  

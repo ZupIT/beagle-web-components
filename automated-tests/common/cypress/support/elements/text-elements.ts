@@ -15,9 +15,7 @@
  */
 
 const textElements = {
-    textByValue: (value: string) => cy.get(`[ng-reflect-text="${value}"]`),  
-
-    
+   textByValue: (value: string) => cy.contains('p', value)
 }
 
 export default textElements

@@ -22,8 +22,8 @@ Given("the Beagle application did launch with the texts on screen", () => {
     textPage.init()
 })
 
-Then(/my text component must render its respective (.*) correctly/, (textAttribute) => {
-    textPage.checkTextOnScreen(textAttribute)
+Then(/my text component (.*) must be renderded on screen/, (text) => {
+    textPage.checkTextIsOnScreen(text)
 })
 
 // Then(/my text component (.*) should render their respective color (.*) correctly/, () => {   
