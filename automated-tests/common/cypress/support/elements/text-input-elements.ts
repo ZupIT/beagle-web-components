@@ -15,8 +15,8 @@
  */
 
 const TextInputElements = {
-    valueOfInput: (value: string) => cy.get(`input[ng-reflect-model="${value}"]`),  
-    valueOfHint: (hint: string) => cy.get(`input[placeholder="${hint}"]`),
+    inputByValue: (value: string) => cy.get(`input[ng-reflect-model="${value}"]`),  
+    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
 }
 
 export default TextInputElements

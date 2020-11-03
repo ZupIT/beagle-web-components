@@ -69,32 +69,34 @@ Feature: TextInput Validation
 #           | is a textInput in second plan with expression |
 
     Scenario Outline: TextInput 06 - validate textInput of type number
-            Then validate textInput component of type number with text <textInputTypeNumber>
-
-            Examples:
-                | textInputTypeNumber                      |
-                | is textInput type number                 |
-                | is textInput type number with expression |
-
-    Scenario Outline: TextInput 07 - validate textInput with actions of onChange, onFocus and onBlur
-
-        When I click to textInput with the placeholder <placeholder> then change to <didOnFocus> and to <didOnChange>
-        Then the text <didOnBlur> should be appear
+        Then validate textInput component of type number with text <textInputTypeNumber>
 
         Examples:
-            | placeholder       | didOnFocus | didOnChange | didOnBlur |
-            | action validation | DidOnFocus | DidOnChange | DidOnBlur |
+            | textInputTypeNumber                      |
+            | is textInput type number                 |
+            | is textInput type number with expression |
+ 
+   Scenario: TextInput 07 - validate textInput with action onFocus
+        When I click the textInput with the placeholder action validation
+        Then the textInput with the placeholder Unordered actions will change its value to DidOnFocus
 
-    Scenario Outline: TextInput 08 - validate if the actions of the textInput are ate the correctly order
+   Scenario: TextInput 08 - validate textInput with action onChange
+        When I click the textInput with the placeholder action validation
+        And I type anything on textInput with the placeholder action validation
+        Then the textInput with the placeholder Unordered actions will change its value to DidOnChange
+   
+    Scenario: TextInput 09 - validate textInput with action onBlur
+        When I click the textInput with the placeholder action validation
+        And I click the textInput with the placeholder is textInput type number
+        Then the textInput with the placeholder Unordered actions will change its value to DidOnBlur
+    
+    Scenario: TextInput 10 - validate the actions of the textInput when they're executed in sequence
+        When I click the textInput with the placeholder action order
+        And I type anything on textInput with the placeholder action order
+        And I click the textInput with the placeholder is textInput type number
+        Then the textInput with the placeholder Ordered actions should have value DidOnFocusDidOnChangeDidOnBlur
 
-        When I click to textInput with the placeholder <placeholder> then change to <didOnFocus> and to <didOnChange>
-        Then the text <didOnBlur> should be appear in the correctly order
-
-        Examples:
-            | placeholder  | didOnFocus | didOnChange           | didOnBlur                      |
-            | action order | DidOnFocus | DidOnFocusDidOnChange | DidOnFocusDidOnChangeDidOnBlur |
-
-    Scenario Outline: TextInput 09 - validate that textInput is hidden
+    Scenario Outline: TextInput 11 - validate that textInput is hidden
         Then The hidden input fields <textInputHidden> should not be visible
 
         Examples:
