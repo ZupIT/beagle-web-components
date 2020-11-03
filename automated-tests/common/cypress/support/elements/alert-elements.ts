@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
@@ -14,18 +15,9 @@
  * limitations under the License.
  */
 
-const url = Cypress.env('baseUrl')
-
-class BeaglePage {
-  private path: string
+const AlertElements = {
+    buttons: () => cy.get('button'),
+    buttonWithText: (text: string) => cy.contains('button', text),
+  }
   
-  constructor(path: string) {
-    this.path = path
-  }
-
-  init() {
-    return cy.visit(`${url}?path=${this.path}`)
-  }
-}
-
-export default BeaglePage;
+  export default AlertElements

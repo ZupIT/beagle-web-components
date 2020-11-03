@@ -14,18 +14,29 @@
  * limitations under the License.
  */
 
-const url = Cypress.env('baseUrl')
+import AlertElements from '../elements/Alert-elements'
+import BeaglePage from './BeaglePage'
 
-class BeaglePage {
-  private path: string
+class AlertPage extends BeaglePage {
+  lastAlertMessage = ''
+  constructor() {
+    super('alert')
+  }
   
-  constructor(path: string) {
-    this.path = path
+  init() {
+    return super.init().then(() => {
+      cy.on('window:alert', message => this.lastAlertMessage = message)
+    })
   }
 
-  init() {
-    return cy.visit(`${url}?path=${this.path}`)
+  clickButton(text: string) {
+    AlertElements.buttonWithText(text).click()
   }
+
+  checkAlert(message: String){
+    expect(this.lastAlertMessage).to.equal(message)
+  }
+  
 }
 
-export default BeaglePage;
+export default AlertPage

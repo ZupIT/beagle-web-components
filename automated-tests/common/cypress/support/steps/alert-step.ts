@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-const url = Cypress.env('baseUrl')
+import AlertPage from '../page-objects/AlertPage'
 
-class BeaglePage {
-  private path: string
-  
-  constructor(path: string) {
-    this.path = path
-  }
+const alertPage = new AlertPage
 
-  init() {
-    return cy.visit(`${url}?path=${this.path}`)
-  }
-}
+  Given("the Beagle application did launch with the alert screen url", () => {
+    alertPage.init()
+  })
 
-export default BeaglePage;
+  When(/I press an alert button with the (.*) title/, (text) => {
+    alertPage.clickButton(text)
+  })
+
+  Then(/an alert with the (.*) message should appear on the screen/, (message) => {
+    alertPage.checkAlert(message)
+  })
