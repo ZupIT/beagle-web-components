@@ -33,9 +33,9 @@ class TextPage extends BeaglePage {
  
   checkTextAlignment(text: string, alignment: string){
     let align = alignment.toLowerCase()
-    textlements.textByValue(text).should('have.attr', 'style',`color: inherit; text-align: ${align};`)
+    textlements.textByValue(text).should('have.css', 'text-align').and('equal', `${align}`)
   }
-
+  
 } 
 
 export default TextPage
