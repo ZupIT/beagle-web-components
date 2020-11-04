@@ -26,11 +26,11 @@ Then(/my text component (.*) must be renderded on screen/, (text) => {
     textPage.checkTextIsOnScreen(text)
 })
 
-// Then(/my text component (.*) should render their respective color (.*) correctly/, () => {   
-//     //textPage.checkText('hello world via expression')
-// })
+Then(/my text component (.*) should render their respective color (.*) correctly/, (text, color) => {   
+    textPage.checkTextColor(text, color)
+})
 
-// Then(/my text component should render their respective (.*) with textAlignment at (.*) correctly/, () => {   
-//     //textPage.checkTextColor('hello world via expression')
-// })
+Then(/my text component (.*) should render itself with a textAlignment (.*)/, (text, alignment) => {   
+    textPage.checkTextAlignment(text, alignment)
+})
 

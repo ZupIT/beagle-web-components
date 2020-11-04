@@ -31,24 +31,25 @@ Feature: Text Component Validation
             | textAttribute          |
             | TextValue              |
             | TextValueViaExpression |
+            
+    #There is a need to change the color attribute to rgb because there is a particularity in cypress here on the web
+    Scenario Outline: Text 02 - Text component renders text with textColor correctly
+        Then my text component <textWithColor> should render their respective color <color> correctly
 
-    # Scenario Outline: Text 02 - Text component renders text with textColor correctly
-    #     Then my text component <textWithColor> should render their respective color <color> correctly
+        Examples:
+            | textWithColor              | color          |
+            | TextWithColor              | rgb(0, 128, 0) |
+            | TextWithColorViaExpression | rgb(0, 128, 0) |
 
-    #     Examples:
-    #         | textWithColor              | color   |
-    #         | TextWithColor              | #008000 |
-    #         | TextWithColorViaExpression | #008000 |
+    Scenario Outline: Text 03 - Text component renders text with textAlignment correctly
+        Then my text component <textAttribute> should render itself with a textAlignment <Position>
 
-    # Scenario Outline: Text 03 - Text component renders text with textAlignment correctly
-    #     Then my text component <textAttribute> should render itself with a textAlignment <Position>
-
-    #     Examples:
-    #         | textAttribute                     | Position |
-    #         | TextAlignedLeft                   | LEFT     |
-    #         | TextAlignedCenter                 | CENTER   |
-    #         | TextAlignedRight                  | RIGHT    |
-    #         | TextAlignedLeftViaExpression      | LEFT     |
-    #         | TextAlignedCenterViaExpression    | CENTER   |
-    #         | TextAlignedRightViaExpression     | RIGHT    |
-	#         | TextAlignedRight  via expression  | RIGHT    |         
+        Examples:
+            | textAttribute                     | Position |
+            | TextAlignedLeft                   | LEFT     |
+            | TextAlignedCenter                 | CENTER   |
+            | TextAlignedRight                  | RIGHT    |
+            | TextAlignedLeftViaExpression      | LEFT     |
+            | TextAlignedCenterViaExpression    | CENTER   |
+            | TextAlignedRightViaExpression     | RIGHT    |
+	        | TextAlignedRightViaExpression     | RIGHT    |         

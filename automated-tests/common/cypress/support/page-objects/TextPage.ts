@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+
 import textlements from '../elements/text-elements'
 import BeaglePage from './BeaglePage'
 
@@ -26,21 +27,14 @@ class TextPage extends BeaglePage {
     textlements.textByValue(text).should('exist')
   }
 
-  // checkTextColor(text: string){  
-  //   textlements.toHaveText(text).should('have.attr', 'style','color: rgb(136, 136, 136); text-align: inherit;')
-  // }
-
-  // checkTextAlignmentLeft(text: string){
-  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: left;')
-  // }
-
-  // checkTextAlignmentCenter(text: string){
-  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: center;')
-  // }
-  
-  // checkTextAlignmentRight(text: string){
-  //   textlements.toHaveText(text).should('have.attr', 'style','color: inherit; text-align: right;')
-  // }
+  checkTextColor(text: string, color: string){
+    textlements.textByValue(text).should('have.css', 'color').and('equal', `${color}`)
+  }
+ 
+  checkTextAlignment(text: string, alignment: string){
+    let align = alignment.toLowerCase()
+    textlements.textByValue(text).should('have.attr', 'style',`color: inherit; text-align: ${align};`)
+  }
 
 } 
 
