@@ -35,9 +35,9 @@ Then('A Text need to be added after the already exist one', () => {
 })
 
 Then('Nothing should happen', () => {
-    addChildrenPage.checkShouldHappen()
+    addChildrenPage.checkOnlyOneParagraph()
 })
 
 Then('A Text need to replace the already exist one', () => {
-    addChildrenPage.checkExistOne()
+    addChildrenPage.checkOnlyOneParagraphAdded()
 })

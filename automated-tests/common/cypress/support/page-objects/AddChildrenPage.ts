@@ -42,12 +42,12 @@ class ChildrenPage extends BeaglePage {
     addChildrenElements.paragraph().eq(0).contains('New text added')
   }
 
-  checkShouldHappen() {
+  checkOnlyOneParagraph() {
     addChildrenElements.paragraphWithText("I'm the single text on screen").should('exist')
     addChildrenElements.paragraph().should('have.length', 1)
   }
 
-  checkExistOne() {
+  checkOnlyOneParagraphAdded() {
     addChildrenElements.paragraphWithText('New text added').should('exist')
     addChildrenElements.paragraph().should('have.length', 1)
   }
