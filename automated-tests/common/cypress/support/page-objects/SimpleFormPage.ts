@@ -18,10 +18,29 @@ import simpleFormElements from '../elements/simple-form-elements'
 import BeaglePage from './BeaglePage'
 
 class SimpleFormPage extends BeaglePage {
+  lastAlertMessage = ''
   constructor() {
     super('simpleform')
   }
 
+  init() {
+    return super.init().then(() => {
+      cy.on('window:alert', message => this.lastAlertMessage = message)
+    })
+  }
+
+  checkButtonByText(text: string){
+    simpleFormElements.buttonWithText(text).click()
+  }
+
+  typeInputByPlaceholder(placeholder: string, value: string){
+    simpleFormElements.inputByPlaceholder(placeholder).type(value)
+  }
+
+  checkAlertMessage(message: String){
+    alert(message)
+    expect(this.lastAlertMessage).to.equal(message)
+  }
 
 }
 
