@@ -27,5 +27,5 @@ const alertPage = new AlertPage
   })
 
   Then(/an alert with the (.*) message should appear on the screen/, (message) => {
-    alertPage.checkAlert(message)
+    alertPage.checkAlertMessage(message)
   })

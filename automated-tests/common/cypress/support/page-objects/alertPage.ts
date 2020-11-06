@@ -33,7 +33,7 @@ class AlertPage extends BeaglePage {
     AlertElements.buttonWithText(text).click()
   }
 
-  checkAlert(message: String){
+  checkAlertMessage(message: String){
     expect(this.lastAlertMessage).to.equal(message)
   }
   

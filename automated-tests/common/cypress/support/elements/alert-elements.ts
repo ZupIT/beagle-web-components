@@ -16,7 +16,6 @@
  */
 
 const AlertElements = {
-    buttons: () => cy.get('button'),
     buttonWithText: (text: string) => cy.contains('button', text),
   }
   
