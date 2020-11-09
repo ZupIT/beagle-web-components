@@ -38,7 +38,6 @@ class SimpleFormPage extends BeaglePage {
   }
 
   checkAlertMessage(message: String){
-    alert(message)
     expect(this.lastAlertMessage).to.equal(message)
   }
 

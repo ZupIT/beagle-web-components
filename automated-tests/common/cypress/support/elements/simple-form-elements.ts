@@ -16,8 +16,6 @@
 
 const simpleFormElements = {
 
-    
-
     buttonWithText: (text: string) => cy.contains('button', text),
     inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
     checkAlertMessage(message: String){
