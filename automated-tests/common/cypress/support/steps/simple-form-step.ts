@@ -22,12 +22,24 @@ Given("that I'm on the simple form screen", () => {
   simpleFormPage.init()
 })
 
+
+Then(/checks that the textInput with the placeholder (.*) is on the screen/, (placeholder) => {
+  simpleFormPage.checkInputByPlaceholder(placeholder)
+})
+
+
+Then(/checks that the button with the title (.*) is on the screen/, (text) => {
+  simpleFormPage.checkButtonByText(text)
+})
+
+
+
 When(/I type on textInput with the placeholder (.*) and insert (.*)/, (placeholder, value) => {
   simpleFormPage.typeInputByPlaceholder(placeholder, value)
 })
 
 When(/I click to button (.*)/, (text) => {
-  simpleFormPage.checkButtonByText(text)
+  simpleFormPage.clickButtonByText(text)
 })
 
 Then(/verify if (.*) is appear correctly/, (message) => {

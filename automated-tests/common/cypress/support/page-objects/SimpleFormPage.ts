@@ -29,7 +29,15 @@ class SimpleFormPage extends BeaglePage {
     })
   }
 
+  checkInputByPlaceholder(placeholder: string){
+    simpleFormElements.inputByPlaceholder(placeholder).should('exist')
+  }
+  
   checkButtonByText(text: string){
+    simpleFormElements.buttonWithText(text).should('exist')
+  }
+
+  clickButtonByText(text: string){
     simpleFormElements.buttonWithText(text).click()
   }
 
