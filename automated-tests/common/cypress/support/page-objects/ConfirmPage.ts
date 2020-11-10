@@ -19,6 +19,7 @@ import BeaglePage from './BeaglePage'
 
 class ConfirmPage extends BeaglePage {
     lastAlertMessage = ''
+    lastConfirmMessage = ''
 
     constructor() {
         super('confirm')
@@ -26,7 +27,8 @@ class ConfirmPage extends BeaglePage {
 
     init() {
         return super.init().then(() => {
-            cy.on('window:confirm', (message) => this.lastAlertMessage = message)
+            cy.on('window:alert', (message) => this.lastAlertMessage = message)
+            cy.on('window:confirm', (message) => this.lastConfirmMessage = message)
           })
     }
 
@@ -37,6 +39,21 @@ class ConfirmPage extends BeaglePage {
     checkAlertMessage(message: String){
         expect(this.lastAlertMessage).to.equal(message)
     }
+
+    checkConfirmMessage(message: String){
+        expect(this.lastConfirmMessage).to.equal(message)
+    }
+
+    clickCancel() {
+        confirmElements.clickFalse()
+    }
+
+    // it('Handling JS Confirm - Click Cancel', () => {
+    //     cy.contains('Click for JS Confirm').click()
+    //     cy.on('window:confirm', () => false);
+    //     cy.get('#result').contains('You clicked: Cancel')
+    // })
+
 
 }
 

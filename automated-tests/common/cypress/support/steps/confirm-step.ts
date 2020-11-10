@@ -27,5 +27,21 @@ When(/I press a confirm button with the (.*) title/, (buttonTitle) => {
 })
 
 Then(/a confirm with the (.*) message should appear on the screen/, (message) => {
+    confirmPage.checkConfirmMessage(message)
+})
+
+
+When(/I press an alert button with the (.*) title/, (buttonTitle) => {
+    confirmPage.clickButtonByText(buttonTitle)
+})
+
+
+Then(/an alert with the (.*) message should appear on the screen/, (message) => {
     confirmPage.checkAlertMessage(message)
+})
+
+
+
+Then("I press the confirmation CANCEL button on the confirm component", () => {
+    confirmPage.clickCancel()
 })
