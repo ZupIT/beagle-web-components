@@ -44,16 +44,12 @@ class ConfirmPage extends BeaglePage {
         expect(this.lastConfirmMessage).to.equal(message)
     }
 
-    clickCancel() {
-        confirmElements.clickFalse()
+    listenToConfirmationWindow(result: 'cancel' | 'confirm'){
+        cy.on('window:confirm', (message) => { 
+            this.lastConfirmMessage = message
+            return result === 'confirm'
+        })
     }
-
-    // it('Handling JS Confirm - Click Cancel', () => {
-    //     cy.contains('Click for JS Confirm').click()
-    //     cy.on('window:confirm', () => false);
-    //     cy.get('#result').contains('You clicked: Cancel')
-    // })
-
 
 }
 

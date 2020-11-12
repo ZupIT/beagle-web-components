@@ -16,10 +16,8 @@
 
 const confirmElements = {
 
-    buttonWithText: (text: string) => cy.contains('button', text),
-   
-    clickFalse: () => cy.on('window:confirm', () => false)
+    buttonWithText: (text: string) => cy.contains('button', text)
 }
-  
+ 
 export default confirmElements
   

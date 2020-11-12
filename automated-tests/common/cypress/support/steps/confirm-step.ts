@@ -22,26 +22,22 @@ Given("the Beagle application did launch with the confirm screen url", () => {
     confirmPage.init()
 })
 
+Given(/that i'll (.*) the confirmation window/, (result: 'cancel' | 'confirm') => {
+    confirmPage.listenToConfirmationWindow(result)
+})
+
 When(/I press a confirm button with the (.*) title/, (buttonTitle) => {
     confirmPage.clickButtonByText(buttonTitle)
 })
 
-Then(/a confirm with the (.*) message should appear on the screen/, (message) => {
+And(/a confirm with the (.*) message should appear on the screen/, (message) => {
     confirmPage.checkConfirmMessage(message)
 })
 
-
-When(/I press an alert button with the (.*) title/, (buttonTitle) => {
+When(/I press an alert button with the (.*) title/, (buttonTitle) => {  
     confirmPage.clickButtonByText(buttonTitle)
 })
 
-
-Then(/an alert with the (.*) message should appear on the screen/, (message) => {
+And(/an alert with the (.*) message should appear on the screen/, (message) => {
     confirmPage.checkAlertMessage(message)
-})
-
-
-
-Then("I press the confirmation CANCEL button on the confirm component", () => {
-    confirmPage.clickCancel()
 })
