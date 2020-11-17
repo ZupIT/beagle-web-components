@@ -21,26 +21,25 @@ class PageViewPage extends BeaglePage {
   constructor() {
     super('pageview')
   }
-
-  checkPageIndicator(numberOfPages: number, activePage: number) {
-    pageViewElements.indicatorBullets().should('have.length', numberOfPages)
-    for (let i = 0; i < numberOfPages; i++) {
-      pageViewElements.indicatorBullet(i).should(
-        'have.class',
-        i === activePage ? 'active' : 'inactive',
-      )
-    }
-  }
-
+  
   checkArrows() {
     pageViewElements.leftArrow().should('exist')
     pageViewElements.rightArrow().should('exist')
+  }
+
+  clickArrow(){
+    pageViewElements.rightArrow().click()
   }
 
   checkPageContent(text: string) {
     pageViewElements.pageContent().should('exist')
     pageViewElements.pageContent().should('contain.text', text)
   }
+
+  clickButton(text) {
+    pageViewElements.buttonWithText(text).click()
+  }
+
 }
 
 export default PageViewPage

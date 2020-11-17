@@ -39,18 +39,18 @@ Feature: PageView Component Validation
         Given that I'm on the pageview screen
 
     Scenario: PageView 01 - Check that the child components of the current page view appear on the screen and that they have been configured correctly
-        Then checks that the text page 1 is on the screen
+        Then checks that the text Page 1 is on the screen
         When I click on Right arrow 
-        Then checks that the text page 2 is on the screen
+        Then checks that the text Page 2 is on the screen
         When I click on Right arrow 
-        Then checks that the text page 3 is on the screen
+        Then checks that the text Page 3 is on the screen
 
     Scenario: PageView 02 - Checking if pageview arrow indicator components appear on the screen
         Then checks that the component is on the screen
         
     Scenario Outline: PageView 03 - Checking that the onPageChange triggers a list of actions when the page changes
         When I click on Button with <text> title
-        Then onPageChange check if the text page 3 exists on the screen
+        Then checks that the text Page 3 is on the screen
      
     Examples:
       |text                      |
