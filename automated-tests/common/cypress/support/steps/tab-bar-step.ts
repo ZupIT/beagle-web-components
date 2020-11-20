@@ -23,15 +23,16 @@ Given("that I'm on the tabBar screen", () => {
   })
 
 Then(/I click on each (.*) and confirm its (.*)/, (Tab,currentPosition) => {
-  
+  tabBarPage.ClickOnTab(Tab),
+  tabBarPage.CheckPosition(currentPosition)
 })
 
-When(/I click on button (.*)/, (title) => {
-  
+When(/I click on button (.*)/, (buttonText) => {
+  tabBarPage.clickButton(buttonText)
 })
 
-Then(/the tab with text (.*) must be on screen/, (tab) => {
-  
+Then(/the currentTab with text (.*) must be on screen/, (currentPosition) => {
+  tabBarPage.CheckPosition(currentPosition)
 })
 
 

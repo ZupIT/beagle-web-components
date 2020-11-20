@@ -14,12 +14,24 @@
  * limitations under the License.
  */
 
-import TabBarElements from '../elements/tab-bar-elements'
+import tabBarElements from '../elements/tab-bar-elements'
 import BeaglePage from './BeaglePage'
 
 class TabBarPage extends BeaglePage {
   constructor() {
-    super('Tabbar')
+    super('tabbar')
+  }
+
+  ClickOnTab(tabText){
+    tabBarElements.clickTab(tabText).click()
+  }
+
+  CheckPosition(value){
+    tabBarElements.checkCurrentPosition(value).should('exist')
+  }
+
+  clickButton(text: string) {
+    tabBarElements.buttonWithText(text).click()
   }
 
 }
