@@ -14,9 +14,16 @@
  * limitations under the License.
  */
 const TabBarElements = {
-    clickTab: (tabText: string) => cy.contains('.tab-item-content', tabText),
+    images: () => cy.get('img'),
+    imageByindex: () => cy.get('img').eq(0),
+    checkTab: (tabText: string) => cy.contains('.tab-item-content', tabText),
     checkCurrentPosition: (value: string) => cy.contains('p', value),
-    buttonWithText: (text: string) => cy.contains('button', text)
+    buttonWithText: (text: string) => cy.contains('button', text),
+
+    // check: (tabText: string) => cy.contains('.tab-item', tabText),
+    //checkTabByClass : (tabText: string) => 
+
+    
 }
   
 export default TabBarElements

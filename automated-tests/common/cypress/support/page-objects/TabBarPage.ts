@@ -23,7 +23,7 @@ class TabBarPage extends BeaglePage {
   }
 
   ClickOnTab(tabText){
-    tabBarElements.clickTab(tabText).click()
+    tabBarElements.checkTab(tabText).click()
   }
 
   CheckPosition(value){
@@ -33,6 +33,23 @@ class TabBarPage extends BeaglePage {
   clickButton(text: string) {
     tabBarElements.buttonWithText(text).click()
   }
+
+  // CheckIfTabIsSelected(tabText){
+  //   tabBarElements.check(tabText).should('have.class', '.selected')
+  // }
+
+  CheckIfImagesExists(){
+    tabBarElements.images().should('exist')
+  }
+
+  CheckImageByindex(){
+    tabBarElements.imageByindex().should('exist')
+  }
+
+  CheckIfImagesWithText(tabText){
+    tabBarElements.checkTab(tabText).should('exist')
+  }
+
 
 }
 

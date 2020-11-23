@@ -22,8 +22,8 @@ Given("that I'm on the tabBar screen", () => {
     tabBarPage.init()
   })
 
-Then(/I click on each (.*) and confirm its (.*)/, (Tab,currentPosition) => {
-  tabBarPage.ClickOnTab(Tab),
+Then(/I click on each (.*) and confirm its (.*)/, (tabTitle,currentPosition) => {
+  tabBarPage.ClickOnTab(tabTitle),
   tabBarPage.CheckPosition(currentPosition)
 })
 
@@ -31,11 +31,25 @@ When(/I click on button (.*)/, (buttonText) => {
   tabBarPage.clickButton(buttonText)
 })
 
-Then(/the currentTab with text (.*) must be on screen/, (currentPosition) => {
-  tabBarPage.CheckPosition(currentPosition)
+// Then(/the tab with text (.*) must be selected/, (tab) => {
+//   //alert(tab)
+//   tabBarPage.CheckIfTabIsSelected(tab)
+// })
+
+
+When(/I click in a tab with text (.*)/, (tabtitle) => {
+  tabBarPage.ClickOnTab(tabtitle)
 })
 
+Then(/the tab position should have its text changed to (.*)/, (currentPosition) => {
+  tabBarPage.CheckPosition(currentPosition)
+})  
 
-// Then(/the tab position should have its text changed to (.*)/, () => {
-  
-// })  
+Then("check tab with beagle icon is on screen", () => {
+  tabBarPage.CheckIfImagesExists()
+})  
+
+Then(/check tab with text (.*) and beagle icon are on screen/, (tabText) => {
+  tabBarPage.CheckImageByindex()
+  tabBarPage.CheckIfImagesWithText(tabText)
+}) 
