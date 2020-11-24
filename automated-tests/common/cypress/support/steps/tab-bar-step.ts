@@ -28,14 +28,12 @@ Then(/I click on each (.*) and confirm its (.*)/, (tabTitle,currentPosition) => 
 })
 
 When(/I click on button (.*)/, (buttonText) => {
-  tabBarPage.clickButton(buttonText)
+  tabBarPage.ClickOnButton(buttonText)
 })
 
-// Then(/the tab with text (.*) must be selected/, (tab) => {
-//   //alert(tab)
-//   tabBarPage.CheckIfTabIsSelected(tab)
-// })
-
+Then(/the tab with text (.*) must be selected/, (tab) => {
+  tabBarPage.CheckIfTabIsSelected(tab)
+})
 
 When(/I click in a tab with text (.*)/, (tabtitle) => {
   tabBarPage.ClickOnTab(tabtitle)
@@ -50,6 +48,10 @@ Then("check tab with beagle icon is on screen", () => {
 })  
 
 Then(/check tab with text (.*) and beagle icon are on screen/, (tabText) => {
-  tabBarPage.CheckImageByindex()
+  tabBarPage.CheckImageByIndex()
   tabBarPage.CheckIfImagesWithText(tabText)
+}) 
+
+Then("the tab with text image and beagle image changed to other image with text image", () => {
+  tabBarPage.CheckImageSource()
 }) 

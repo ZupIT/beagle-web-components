@@ -23,31 +23,35 @@ class TabBarPage extends BeaglePage {
   }
 
   ClickOnTab(tabText){
-    tabBarElements.checkTab(tabText).click()
+    tabBarElements.checkTabByText(tabText).click()
   }
 
   CheckPosition(value){
     tabBarElements.checkCurrentPosition(value).should('exist')
   }
 
-  clickButton(text: string) {
+  ClickOnButton(text: string) {
     tabBarElements.buttonWithText(text).click()
   }
 
-  // CheckIfTabIsSelected(tabText){
-  //   tabBarElements.check(tabText).should('have.class', '.selected')
-  // }
+  CheckIfTabIsSelected(tabText){
+    tabBarElements.checkTabByText(tabText).find('.selected').should('exist')
+  }
 
   CheckIfImagesExists(){
     tabBarElements.images().should('exist')
   }
 
-  CheckImageByindex(){
-    tabBarElements.imageByindex().should('exist')
+  CheckImageByIndex(){
+    tabBarElements.imageByIndex().should('exist')
   }
 
   CheckIfImagesWithText(tabText){
-    tabBarElements.checkTab(tabText).should('exist')
+    tabBarElements.checkTabByText(tabText).should('exist')
+  }
+
+  CheckImageSource(){
+    tabBarElements.imageByIndex().should('have.attr', 'src').and('equal', 'https://i.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U')
   }
 
 

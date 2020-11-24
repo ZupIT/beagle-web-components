@@ -15,15 +15,13 @@
  */
 const TabBarElements = {
     images: () => cy.get('img'),
-    imageByindex: () => cy.get('img').eq(0),
-    checkTab: (tabText: string) => cy.contains('.tab-item-content', tabText),
+    imageByIndex: () => cy.get('img').eq(0),
+    checkTabByText: (tabText: string) => cy.contains('.tab-item', tabText),
     checkCurrentPosition: (value: string) => cy.contains('p', value),
     buttonWithText: (text: string) => cy.contains('button', text),
 
-    // check: (tabText: string) => cy.contains('.tab-item', tabText),
-    //checkTabByClass : (tabText: string) => 
+   
 
-    
 }
   
 export default TabBarElements
