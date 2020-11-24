@@ -38,7 +38,7 @@ class TextInputPage extends BeaglePage {
     textInputElements.inputByPlaceholder(placeholder).should('be.disabled')
   }
 
-  checkHaveReadOnlyInput(value: string){
+  checkReadOnlyInput(value: string){
     textInputElements.inputByValue(value).should('exist')
   }
 
@@ -58,8 +58,8 @@ class TextInputPage extends BeaglePage {
     textInputElements.inputByPlaceholder(placeholder).should('have.value',`${event}`) 
   }
 
-  typeInputByPlaceholder(placeholder: string){
-    textInputElements.inputByPlaceholder(placeholder).type('test') 
+  typeInputByPlaceholder(placeholder: string, value: string){
+    textInputElements.inputByPlaceholder(placeholder).type(`${value}`)
   }
   
   checkIfHidden(value: string){

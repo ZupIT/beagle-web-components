@@ -39,12 +39,26 @@ Then(/verify if the field with the placeholder (.*) is disabled/, (placeholder) 
 })
 
 When(/the value (.*) of the readOnly field is on the screen/, (placeholder) => {
-    textInputPage.checkHaveReadOnlyInput(placeholder)
+    textInputPage.checkReadOnlyInput(placeholder)
 })
 
 Then(/verify if the field with the value (.*) is read only/, (placeholder) => {
     textInputPage.checkIfReadOnly(placeholder)
 })
+
+
+// Then(/validate the text Input component type date with hint (.*) and type the (.*)/, (placeholder, value) => {
+//     textInputPage.typeInputByPlaceholder(placeholder, value)
+// })
+
+Then(/validate the text Input component with hint (.*) and type the (.*)/, (placeholder, value) => {
+    textInputPage.typeInputByPlaceholder(placeholder, value)
+})
+
+
+
+
+
 
 Then(/validate textInput component of type number with text (.*)/, (placeholder) => {
     textInputPage.checkInputType(placeholder, 'NUMBER')  
@@ -55,7 +69,7 @@ When(/I click the textInput with the placeholder (.*)/, (placeholder) => {
 })
 
 And(/I type anything on textInput with the placeholder (.*)/, (placeholder) => {
-    textInputPage.TypeInputByPlaceholder(placeholder)
+    textInputPage.typeInputByPlaceholder(placeholder, 'teste')
 })
 
 Then(/the textInput with the placeholder (.*) will change its value to (.*)/, (placeholder, event) => {
@@ -69,3 +83,4 @@ Then(/the textInput with the placeholder (.*) should have value (.*)/, (placehol
 Then(/The hidden input fields (.*) should not be visible/, (value) => {
     textInputPage.checkIfHidden(value)
 })
+
