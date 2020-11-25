@@ -22,5 +22,4 @@ dist/
 **/nohup.out
 .DS_Store
 screenshots/
-**/cypress-visual-screenshots/comparison/
-**/cypress-visual-screenshots/diff/
+**/snapshots/**/__diff_output__

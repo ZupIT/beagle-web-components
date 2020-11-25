@@ -181,8 +181,12 @@ class ListViewPage extends BeaglePage {
   }
 
   expectListToMatchSnapshot(listName: string, snapshotName: string) {
+    /* Since the images will be slightly different in different environments, we only make snapshot
+    tests for the headless browser. These differences could be ignored with AI image comparison,
+    but we use a pixel-by-pixel tool. AI tools are paid. */
+    if (!Cypress.browser.isHeadless) return
     // @ts-ignore using untyped cypress extension
-    this.getListByName(listName).parent().compareSnapshot(snapshotName, 0)
+    this.getListByName(listName).parent().matchImageSnapshot(snapshotName, 0)
   }
 }
 
