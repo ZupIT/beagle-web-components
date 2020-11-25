@@ -22,8 +22,27 @@ Given("that I'm on the pageview screen", () => {
   pageView.init()
 })
 
-Then("my pageview components should render their respective pages attributes correctly", () => {
-  pageView.checkPageIndicator(3, 0)
-  pageView.checkArrows()
-  pageView.checkPageContent('Page 1')
+When(/I click on Button with (.*) title/, (buttonText) => {
+  pageView.clickButton(buttonText)
 })
+
+When("I click on Right arrow", () => {
+  pageView.clickArrow()
+})
+
+When(/I press a navigation button (.*)/, (buttonText) => {
+  pageView.clickButton(buttonText)
+})
+
+Then("checks that the component is on the screen", () => {
+  pageView.checkArrows()
+})
+
+Then(/checks that the text Page (.*) is on the screen/, (text) => {
+  pageView.checkPageContent(text)
+})
+
+Then(/checks if the context (.*) existing on the screen/, (pageViewContext) => {
+  pageView.checkPageContent(pageViewContext)
+})
+
