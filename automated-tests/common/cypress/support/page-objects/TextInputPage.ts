@@ -22,48 +22,48 @@ class TextInputPage extends BeaglePage {
     super('textinput')
   }
 
-  checkValue(inputValue: string){
-    textInputElements.valueOfInput(inputValue)
+  checkInputByValue(value: string){
+    textInputElements.inputByValue(value).should('exist')
   }
 
-  checkHintValue(hintValue: string){
-    textInputElements.valueOfHint(hintValue)
+  checkInputByPlaceholder(placeholder: string){
+    textInputElements.inputByPlaceholder(placeholder).should('exist')
   }
 
-  checkHaveDisableInput(isDisable: string){
-    textInputElements.valueOfHint(isDisable)
+  checkHaveDisableInput(placeholder: string){
+    textInputElements.inputByPlaceholder(placeholder).should('exist')
   }
 
-  checkDisableInput(isDisable: string){
-    textInputElements.valueOfHint(isDisable).should('be.disabled')
+  checkIfDisabled(placeholder: string){
+    textInputElements.inputByPlaceholder(placeholder).should('be.disabled')
   }
 
-  checkHaveReadOnlyInput(isReadOnly: string){
-    textInputElements.valueOfInput(isReadOnly)
+  checkReadOnlyInput(value: string){
+    textInputElements.inputByValue(value).should('exist')
   }
 
-  checkReadOnlyInput(isReadOnly: string){
-    textInputElements.valueOfInput(isReadOnly).should('have.attr','readonly')
+  checkIfReadOnly(value: string){
+    textInputElements.inputByValue(value).should('have.attr','readonly')
   }
 
-  checkNumberInput(isInputNumber: string){
-    textInputElements.valueOfHint(isInputNumber).should('have.attr','type', 'NUMBER') 
+  checkInputType(placeholder: string, type: string){
+    textInputElements.inputByPlaceholder(placeholder).should('have.attr','type', `${type}`) 
   }
 
-  checkEvents(hint: string, didOnFocus: string, didOnChange: string){
-    textInputElements.valueOfHint(hint).click()
-    textInputElements.valueOfInput(didOnFocus).should('exist')
-    textInputElements.valueOfHint(hint).type('teste')
-    textInputElements.valueOfInput(didOnChange).should('exist')
+  clickInputByPlaceholder(placeholder: string){
+    textInputElements.inputByPlaceholder(placeholder).click()
   }
 
-  checkOnblur(didOnBlur: string){
-    textInputElements.valueOfInput('TextInput test').click()
-    textInputElements.valueOfInput(didOnBlur).should('exist')
+  checkEventByClick(placeholder: string, event: string){
+    textInputElements.inputByPlaceholder(placeholder).should('have.value',`${event}`) 
   }
 
-  checkHidenInput(isHiden: string){
-    textInputElements.valueOfInput(isHiden).should('not.be.visible')
+  typeInputByPlaceholder(placeholder: string, value: string){
+    textInputElements.inputByPlaceholder(placeholder).type(`${value}`)
+  }
+  
+  checkIfHidden(value: string){
+     textInputElements.inputByValue(value).should('not.be.visible')
   }
 }
 

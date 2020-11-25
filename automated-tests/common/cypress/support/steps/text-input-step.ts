@@ -22,42 +22,65 @@ Given("the Beagle application did launch with the textInput on screen", () => {
     textInputPage.init()
 })
 
-Then(/I must check if the textInput value (.*) appears on the screen/, (inputValue) => {
-   textInputPage.checkValue(inputValue)
+Then(/I must check if the textInput value (.*) appears on the screen/, (Value) => {
+   textInputPage.checkInputByValue(Value)
 })
 
-Then(/I must check if the textInput placeholder (.*) appears on the screen/, (hintValue) => {
-    textInputPage.checkHintValue(hintValue)
+Then(/I must check if the textInput placeholder (.*) appears on the screen/, (placeholder) => {
+    textInputPage.checkInputByPlaceholder(placeholder)
 })
 
-When(/the placeholder (.*) of the disabled field is on the screen/, (isDisable) => {
-    textInputPage.checkHaveDisableInput(isDisable)
+When(/the placeholder (.*) of the disabled field is on the screen/, (placeholder) => {
+    textInputPage.checkHaveDisableInput(placeholder)
 })
 
-Then(/verify if the field with the placeholder (.*) is disabled/, (isDisable) => {
-    textInputPage.checkDisableInput(isDisable)
+Then(/verify if the field with the placeholder (.*) is disabled/, (placeholder) => {
+    textInputPage.checkIfDisabled(placeholder)
 })
 
-When(/the value (.*) of the readOnly field is on the screen/, (isReadOnly) => {
-    textInputPage.checkHaveReadOnlyInput(isReadOnly)
+When(/the value (.*) of the readOnly field is on the screen/, (placeholder) => {
+    textInputPage.checkReadOnlyInput(placeholder)
 })
 
-Then(/verify if the field with the value (.*) is read only/, (isReadOnly) => {
-    textInputPage.checkReadOnlyInput(isReadOnly)
+Then(/verify if the field with the value (.*) is read only/, (placeholder) => {
+    textInputPage.checkIfReadOnly(placeholder)
 })
 
-Then(/validate textInput component of type number with text (.*)/, (isInputNumber) => {
-    textInputPage.checkNumberInput(isInputNumber)  
+
+// Then(/validate the text Input component type date with hint (.*) and type the (.*)/, (placeholder, value) => {
+//     textInputPage.typeInputByPlaceholder(placeholder, value)
+// })
+
+Then(/validate the text Input component with hint (.*) and type the (.*)/, (placeholder, value) => {
+    textInputPage.typeInputByPlaceholder(placeholder, value)
 })
 
-When(/I click to textInput with the placeholder (.*) then change to (.*) and to (.*)/, (hint, didOnFocus, didOnChange) => {
-    textInputPage.checkEvents(hint, didOnFocus, didOnChange)
+
+
+
+
+
+Then(/validate textInput component of type number with text (.*)/, (placeholder) => {
+    textInputPage.checkInputType(placeholder, 'NUMBER')  
 })
 
-Then(/the text (.*) should be appear/, (didOnblur) => {
-    textInputPage.checkOnblur(didOnblur)  
+When(/I click the textInput with the placeholder (.*)/, (placeholder) => {
+    textInputPage.clickInputByPlaceholder(placeholder)
 })
 
-Then(/The hidden input fields (.*) should not be visible/, (isHiden) => {
-    textInputPage.checkHidenInput(isHiden)
+And(/I type anything on textInput with the placeholder (.*)/, (placeholder) => {
+    textInputPage.typeInputByPlaceholder(placeholder, 'teste')
 })
+
+Then(/the textInput with the placeholder (.*) will change its value to (.*)/, (placeholder, event) => {
+    textInputPage.checkEventByClick(placeholder, event)  
+})
+
+Then(/the textInput with the placeholder (.*) should have value (.*)/, (placeholder, event) => {
+    textInputPage.checkEventByClick(placeholder, event)  
+})
+
+Then(/The hidden input fields (.*) should not be visible/, (value) => {
+    textInputPage.checkIfHidden(value)
+})
+
