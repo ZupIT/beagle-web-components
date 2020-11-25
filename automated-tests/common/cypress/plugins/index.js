@@ -31,6 +31,7 @@
 const browserify = require('@cypress/browserify-preprocessor')
 const cucumber = require('cypress-cucumber-preprocessor').default
 const resolve = require('resolve')
+const getCompareSnapshotsPlugin = require('cypress-image-diff-js/dist/plugin')
 
 /**
  * @type {Cypress.PluginConfig}
@@ -48,4 +49,5 @@ module.exports = (on, config) => {
       return null
     }
   })
+  getCompareSnapshotsPlugin(on, config)
 }

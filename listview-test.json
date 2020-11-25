@@ -1,0 +1,230 @@
+{
+  "bookGenres": [
+    {
+      "genre": "Fantasy",
+      "books": [
+        {
+          "title": "The Final Empire",
+          "author": "Brandon Sanderson",
+          "collection": "Mistborn Era 1",
+          "bookNumber": 1,
+          "year": 2006,
+          "rating": 4.7,
+          "characters": [
+            "Vin",
+            "Kelsier",
+            "Lord Ruler",
+            "Sazed",
+            "Elend Venture"
+          ]
+        },
+        {
+          "title": "The Alloy of Law",
+          "author": "Brandon Sanderson",
+          "collection": "Mistborn Era 2",
+          "bookNumber": 1,
+          "year": 2011,
+          "rating": 4.5,
+          "characters": [
+            "Waxillium \"Wax\" Ladrian",
+            "Wayne",
+            "Marasi Colms",
+            "Steris Harms",
+            "Miles Dagouter"
+          ]
+        },
+        {
+          "title": "A Game of Thrones",
+          "author": "George R.R. Martin",
+          "collection": "A Song of Ice and Fire",
+          "bookNumber": 1,
+          "year": 1996,
+          "rating": 4.8,
+          "characters": [
+            "Eddard \"Ned\" Stark",
+            "Catelyn Stark",
+            "Sansa Stark",
+            "Arya Stark",
+            "Bran Stark"
+          ]
+        },
+        {
+          "title": "Words of Radiance",
+          "author": "Brandon Sanderson",
+          "collection": "The Stormlight Archive",
+          "bookNumber": 2,
+          "year": 2014,
+          "rating": 4.8,
+          "characters": [
+            "Szeth-son-son-Vallano",
+            "Shallan Davar",
+            "Kaladin",
+            "Dalinar Kholin",
+            "Adolin Kholin"
+          ]
+        },
+        {
+          "title": "Shadows Rising",
+          "author": "Madeleine Roux",
+          "collection": "World of Warcraft",
+          "bookNumber": 24,
+          "year": 2020,
+          "rating": 4.3,
+          "characters": [
+            "Talanji",
+            "Zekhan",
+            "Anduin Wrynn",
+            "Turalyon",
+            "Aleria Windrunner"
+          ]
+        },
+        {
+          "title": "Before the Storm",
+          "author": "Christie Golden",
+          "collection": "World of Warcraft",
+          "bookNumber": 23,
+          "year": 2018,
+          "rating": 4.6,
+          "characters": [
+            "Anduin Wrynn",
+            "Sylvanas Windrunner",
+            "Grizzek Fizzwrench",
+            "Sapphronetta Flivvers",
+            "Calia Menethil"
+          ]
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone",
+          "author": "J. K. Rowling",
+          "collection": "Harry Potter",
+          "bookNumber": 1,
+          "year": 1997,
+          "rating": 4.9,
+          "characters": [
+            "Harry Potter",
+            "Ronald Weasley",
+            "Hermione Granger",
+            "Rúbeo Hagrid",
+            "Dumbledore"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Sci-fi",
+      "books": [
+        {
+          "title": "Starsight",
+          "author": "Brandon Sanderson",
+          "collection": "Skyward",
+          "bookNumber": 2,
+          "year": 2019,
+          "rating": 4.8,
+          "characters": [
+            "Spensa Nightshade",
+            "Jorgen Weight",
+            "Admiral Cobb",
+            "M-Bot",
+            "Alanik"
+          ]
+        },
+        {
+          "title": "Heaven's River",
+          "author": "Dennis E. Taylor",
+          "collection": "Bobiverse",
+          "bookNumber": 4,
+          "year": 2020,
+          "rating": 4.8,
+          "characters": [
+            "Bob",
+            "Brigit",
+            "Bender",
+            "Howard"
+          ]
+        },
+        {
+          "title": "Leviathan Wakes",
+          "author": "James S.A. Corey",
+          "collection": "The Expanse",
+          "bookNumber": 1,
+          "year": 2015,
+          "rating": 4.7,
+          "characters": [
+            "Juliette Andromeda Mao",
+            "James Holden",
+            "Naomi Nagata",
+            "Amos Burton",
+            "Shed Garvey"
+          ]
+        },
+        {
+          "title": "Dune",
+          "author": "Frank Herbert",
+          "collection": "Dune",
+          "bookNumber": 1,
+          "year": 1965,
+          "rating": 4.6,
+          "characters": [
+            "Paul Atreides",
+            "Duke Leto Atreides",
+            "Lady Jessica",
+            "Alia Atreides",
+            "Thufir Hawat"
+          ]
+        },
+        {
+          "title": "Dying of the Light",
+          "author": "George R.R. Martin",
+          "year": 1976,
+          "rating": 4.1,
+          "characters": [
+            "Dirk t'Larien",
+            "Jaan Vikary",
+            "Garse Janacek"
+          ]
+        }
+      ]
+    },
+    {
+      "genre": "Other",
+      "books": [
+        {
+          "title": "The Last Tribe",
+          "author": "Brad Manuel",
+          "year": 2016,
+          "rating": 4.3,
+          "characters": [
+            "Greg Dixon",
+            "John Dixon",
+            "Emily Dixon",
+            "Rebecca"
+          ]
+        },
+        {
+          "title": "The Cuckoo's Cry",
+          "author": "Caroline Overington",
+          "year": 2020,
+          "rating": 4.3,
+          "characters": [
+            "Don Barlow"
+          ]
+        },
+        {
+          "title": "The Handmaid's Tale",
+          "author": "Margaret Atwood",
+          "collection": "The Handmaid's Tale",
+          "bookNumber": 1,
+          "year": 1985,
+          "rating": 4.6,
+          "characters": [
+            "Offred",
+            "The Commander",
+            "Serena Joy",
+            "Ofglen",
+            "Nick"
+          ]
+        }
+      ]
+    }
+  ]
+}
