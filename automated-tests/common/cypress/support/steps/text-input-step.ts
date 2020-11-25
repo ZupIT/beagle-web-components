@@ -46,21 +46,7 @@ Then(/verify if the field with the value (.*) is read only/, (placeholder) => {
     textInputPage.checkIfReadOnly(placeholder)
 })
 
-
-// Then(/validate the text Input component type date with hint (.*) and type the (.*)/, (placeholder, value) => {
-//     textInputPage.typeInputByPlaceholder(placeholder, value)
-// })
-
-Then(/validate the text Input component with hint (.*) and type the (.*)/, (placeholder, value) => {
-    textInputPage.typeInputByPlaceholder(placeholder, value)
-})
-
-
-
-
-
-
-Then(/validate textInput component of type number with text (.*)/, (placeholder) => {
+Then(/validate textInput component of type number with hint (.*)/, (placeholder) => {
     textInputPage.checkInputType(placeholder, 'NUMBER')  
 })
 
