@@ -15,11 +15,10 @@
  */
 
 const buttonElements = {
-  indicatorBullets: () => cy.get('.page-indicator li'),
-  indicatorBullet: (index: number) => cy.get('.page-indicator li').eq(index),
   leftArrow: () => cy.get('.left-arrow'),
   rightArrow: () => cy.get('.right-arrow'),
   pageContent: () => cy.get('.page-item.active'),
+  buttonWithText: (text: string) => cy.contains('button', text),
 }
 
 export default buttonElements

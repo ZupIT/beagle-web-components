@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
+import AlertPage from '../page-objects/AlertPage'
 
-    buttonWithText: (text: string) => cy.contains('button', text),
-    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
-}
+const alertPage = new AlertPage
 
-export default simpleFormElements
+  Given("the Beagle application did launch with the alert screen url", () => {
+    alertPage.init()
+  })
+
+  When(/I press an alert button with the (.*) title/, (text) => {
+    alertPage.clickButton(text)
+  })
+
+  Then(/an alert with the (.*) message should appear on the screen/, (message) => {
+    alertPage.checkAlertMessage(message)
+  })

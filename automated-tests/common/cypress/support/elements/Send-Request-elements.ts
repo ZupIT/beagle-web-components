@@ -14,32 +14,10 @@
  * limitations under the License.
  */
 
-import pageViewElements from '../elements/page-view-elements'
-import BeaglePage from './BeaglePage'
-
-class PageViewPage extends BeaglePage {
-  constructor() {
-    super('pageview')
+const SendRequestElements = {
+    buttons: () => cy.get('button'),
+    buttonWithText: (text: string) => cy.contains('button', text),
   }
   
-  checkArrows() {
-    pageViewElements.leftArrow().should('exist')
-    pageViewElements.rightArrow().should('exist')
-  }
-
-  clickArrow(){
-    pageViewElements.rightArrow().click()
-  }
-
-  checkPageContent(text: string) {
-    pageViewElements.pageContent().should('exist')
-    pageViewElements.pageContent().should('contain.text', text)
-  }
-
-  clickButton(text) {
-    pageViewElements.buttonWithText(text).click()
-  }
-
-}
-
-export default PageViewPage
+  export default SendRequestElements
+  

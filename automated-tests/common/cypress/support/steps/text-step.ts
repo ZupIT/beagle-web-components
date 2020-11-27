@@ -14,13 +14,23 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
+import TextPage from '../page-objects/TextPage'
 
-    buttonWithText: (text: string) => cy.contains('button', text),
-    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
-}
+const textPage = new TextPage
 
-export default simpleFormElements
+Given("the Beagle application did launch with the texts on screen", () => {
+    textPage.init()
+})
+
+Then(/my text component (.*) must be renderded on screen/, (text) => {
+    textPage.checkTextIsOnScreen(text)
+})
+
+Then(/my text component (.*) should render their respective color (.*) correctly/, (text, color) => {   
+    textPage.checkTextColor(text, color)
+})
+
+Then(/my text component (.*) should render itself with a textAlignment (.*)/, (text, alignment) => {   
+    textPage.checkTextAlignment(text, alignment)
+})
+

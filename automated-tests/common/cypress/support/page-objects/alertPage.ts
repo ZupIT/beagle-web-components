@@ -14,41 +14,29 @@
  * limitations under the License.
  */
 
-import simpleFormElements from '../elements/simple-form-elements'
+import AlertElements from '../elements/Alert-elements'
 import BeaglePage from './BeaglePage'
 
-class SimpleFormPage extends BeaglePage {
+class AlertPage extends BeaglePage {
   lastAlertMessage = ''
   constructor() {
-    super('simpleform')
+    super('alert')
   }
-
+  
   init() {
     return super.init().then(() => {
       cy.on('window:alert', message => this.lastAlertMessage = message)
     })
   }
 
-  checkInputByPlaceholder(placeholder: string){
-    simpleFormElements.inputByPlaceholder(placeholder).should('exist')
-  }
-  
-  checkButtonByText(text: string){
-    simpleFormElements.buttonWithText(text).should('exist')
-  }
-
-  clickButtonByText(text: string){
-    simpleFormElements.buttonWithText(text).click()
-  }
-
-  typeInputByPlaceholder(placeholder: string, value: string){
-    simpleFormElements.inputByPlaceholder(placeholder).type(value)
+  clickButton(text: string) {
+    AlertElements.buttonWithText(text).click()
   }
 
   checkAlertMessage(message: String){
     expect(this.lastAlertMessage).to.equal(message)
   }
-
+  
 }
 
-export default SimpleFormPage
+export default AlertPage

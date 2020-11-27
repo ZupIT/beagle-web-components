@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import simpleFormElements from '../elements/simple-form-elements'
+import ConditionalElements from '../elements/Conditional-elements'
 import BeaglePage from './BeaglePage'
 
-class SimpleFormPage extends BeaglePage {
+class ConditionalPage extends BeaglePage {
   lastAlertMessage = ''
   constructor() {
-    super('simpleform')
+    super('conditional')
   }
 
   init() {
@@ -29,20 +29,8 @@ class SimpleFormPage extends BeaglePage {
     })
   }
 
-  checkInputByPlaceholder(placeholder: string){
-    simpleFormElements.inputByPlaceholder(placeholder).should('exist')
-  }
-  
-  checkButtonByText(text: string){
-    simpleFormElements.buttonWithText(text).should('exist')
-  }
-
-  clickButtonByText(text: string){
-    simpleFormElements.buttonWithText(text).click()
-  }
-
-  typeInputByPlaceholder(placeholder: string, value: string){
-    simpleFormElements.inputByPlaceholder(placeholder).type(value)
+  clickButton(text: string) {
+    ConditionalElements.buttonWithText(text).click()
   }
 
   checkAlertMessage(message: String){
@@ -51,4 +39,4 @@ class SimpleFormPage extends BeaglePage {
 
 }
 
-export default SimpleFormPage
+export default ConditionalPage 

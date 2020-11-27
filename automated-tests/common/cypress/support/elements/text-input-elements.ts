@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
-
-    buttonWithText: (text: string) => cy.contains('button', text),
+const TextInputElements = {
+    inputByValue: (value: string) => cy.get(`input[ng-reflect-model="${value}"]`),  
     inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
 }
 
-export default simpleFormElements
+export default TextInputElements

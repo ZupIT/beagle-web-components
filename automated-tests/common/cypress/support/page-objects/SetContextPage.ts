@@ -14,32 +14,21 @@
  * limitations under the License.
  */
 
-import pageViewElements from '../elements/page-view-elements'
+import setContextElements from '../elements/button-elements'
 import BeaglePage from './BeaglePage'
 
-class PageViewPage extends BeaglePage {
+class SetContextPage extends BeaglePage {
   constructor() {
-    super('pageview')
-  }
-  
-  checkArrows() {
-    pageViewElements.leftArrow().should('exist')
-    pageViewElements.rightArrow().should('exist')
+    super('set-context')
   }
 
-  clickArrow(){
-    pageViewElements.rightArrow().click()
+  clickButton(text: string) {
+    setContextElements.buttonWithText(text).click()
   }
 
-  checkPageContent(text: string) {
-    pageViewElements.pageContent().should('exist')
-    pageViewElements.pageContent().should('contain.text', text)
+  checkSetContextAction(text: string) {
+    setContextElements.paragraphWithText(text).should('exist')
   }
-
-  clickButton(text) {
-    pageViewElements.buttonWithText(text).click()
-  }
-
 }
 
-export default PageViewPage
+export default SetContextPage

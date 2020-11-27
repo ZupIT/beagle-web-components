@@ -14,13 +14,22 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
+import ConditionalPage from '../page-objects/ConditionalPage'
 
-    buttonWithText: (text: string) => cy.contains('button', text),
-    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
-}
+const conditionalPage = new ConditionalPage
 
-export default simpleFormElements
+  Given("the Beagle application did launch with the conditional screen url", () => {
+    conditionalPage.init()
+  })
+
+  When(/I click in a conditional button with (.*) title/, (text) => {
+    conditionalPage.clickButton(text)
+  })
+
+  Then("an Alert action should pop up with a TrueCondition message", () => {
+    conditionalPage.checkAlertMessage("TrueCondition")
+  })
+
+  Then("an Alert action should pop up with a FalseCondition message", () => {
+    conditionalPage.checkAlertMessage("FalseCondition")
+  })

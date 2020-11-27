@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
+import SetContextPage from '../page-objects/SetContextPage'
 
-    buttonWithText: (text: string) => cy.contains('button', text),
-    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
-}
+const setContextPage = new SetContextPage
 
-export default simpleFormElements
+Given("the Beagle application did launch with the SetContext screen url", () => {
+    setContextPage.init()
+})
+
+When(/I press a SetContext button with the (.*) title/, (buttonText) => {
+    setContextPage.clickButton(buttonText)
+})
+
+Then(/a text with the (.*) message should appear on the screen/, (text) => {
+    setContextPage.checkSetContextAction(text)
+})

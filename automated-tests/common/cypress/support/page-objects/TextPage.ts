@@ -14,32 +14,28 @@
  * limitations under the License.
  */
 
-import pageViewElements from '../elements/page-view-elements'
+
+import textlements from '../elements/text-elements'
 import BeaglePage from './BeaglePage'
 
-class PageViewPage extends BeaglePage {
+class TextPage extends BeaglePage {
   constructor() {
-    super('pageview')
+    super('text')
+  }
+
+  checkTextIsOnScreen(text: string){  
+    textlements.textByValue(text).should('exist')
+  }
+
+  checkTextColor(text: string, color: string){
+    textlements.textByValue(text).should('have.css', 'color').and('equal', `${color}`)
+  }
+ 
+  checkTextAlignment(text: string, alignment: string){
+    let align = alignment.toLowerCase()
+    textlements.textByValue(text).should('have.css', 'text-align').and('equal', `${align}`)
   }
   
-  checkArrows() {
-    pageViewElements.leftArrow().should('exist')
-    pageViewElements.rightArrow().should('exist')
-  }
+} 
 
-  clickArrow(){
-    pageViewElements.rightArrow().click()
-  }
-
-  checkPageContent(text: string) {
-    pageViewElements.pageContent().should('exist')
-    pageViewElements.pageContent().should('contain.text', text)
-  }
-
-  clickButton(text) {
-    pageViewElements.buttonWithText(text).click()
-  }
-
-}
-
-export default PageViewPage
+export default TextPage

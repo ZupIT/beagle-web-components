@@ -14,13 +14,8 @@
  * limitations under the License.
  */
 
-const simpleFormElements = {
-
-    buttonWithText: (text: string) => cy.contains('button', text),
-    inputByPlaceholder: (placeholder: string) => cy.get(`input[placeholder="${placeholder}"]`),
-    checkAlertMessage(message: String){
-        expect(this.lastAlertMessage).to.equal(message)
-    }
+const textElements = {
+   textByValue: (value: string) => cy.contains('p', value)
 }
 
-export default simpleFormElements
+export default textElements
