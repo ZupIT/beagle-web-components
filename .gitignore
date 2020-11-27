@@ -22,3 +22,4 @@ dist/
 **/nohup.out
 .DS_Store
 screenshots/
+**/snapshots/**/__diff_output__
