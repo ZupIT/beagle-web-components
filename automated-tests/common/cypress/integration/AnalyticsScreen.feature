@@ -47,11 +47,11 @@ Feature: Analytics validation
         When I press the dialog's OK button
         Then no analytics record should be created
     
-    Scenario: Analytics 05 - View loaded, secreen analytics enabled in the config (should create record)
+    Scenario: Analytics 05 - View loaded, screen analytics enabled in the config (should create record)
         Then an analytics record should be created with { type: 'secreen', platform: 'web-angular', url: 'my-url' }
         
-    Scenario: Analytics 06 - View loaded, secreen analytics disabled in the config (should not create record)
-        Given that, in the anaylics config, enableScreenAnalytics is false
+    Scenario: Analytics 06 - View loaded, ecreen analytics disabled in the config (should not create record)
+        Given that, in the analylics config, enableScreenAnalytics is false
         When I press the button with title navigateToPage2
         Then no analytics record should be created
 
