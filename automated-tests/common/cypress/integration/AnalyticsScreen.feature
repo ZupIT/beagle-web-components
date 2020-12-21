@@ -41,7 +41,7 @@ Feature: Analytics validation
         When I press the dialog's OK button
         Then an analytics record should be created with { type: "action", ... }
     
-    Scenario: Analytics 04 - Action with analytics disabled with the remote config (should not create record)
+    Scenario: Analytics 04 - Action with analytics disabled in the remote config (should not create record)
         When I press the button with title "Confirm with specific analytics configuration"
         Then a confirm dialog should appear on the screen
         When I press the dialog's OK button
