@@ -23,7 +23,7 @@ Feature: Analytics validation
     Background:
         Given the Beagle application did launch with the Analytics screen url
 
-    Scenario: Analytics 01 - Action with no remote analytics config and not declared in the local config (should not create record)
+    Scenario: Analytics 01 - Action with no remote analytics config and declared in the local config (should not create record)
         When I press the button with title "Alert with no specific analytics configuration"
         Then an alert dialog should appear on the screen
         When I press the dialog's OK button
