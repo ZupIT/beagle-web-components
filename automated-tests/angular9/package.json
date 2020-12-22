@@ -20,7 +20,8 @@
     "@angular/platform-browser": "~9.1.12",
     "@angular/platform-browser-dynamic": "~9.1.12",
     "@angular/router": "~9.1.12",
-    "@zup-it/beagle-angular": "1.5.0-rc.1",
+    "@zup-it/beagle-angular": "^1.5.0",
+    "@zup-it/beagle-web": "^1.5.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -32,6 +33,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "amd-loader": "latest",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -43,7 +45,6 @@
     "protractor": "~7.0.0",
     "ts-node": "latest",
     "tslint": "~6.1.0",
-    "typescript": "~3.8.3",
-    "amd-loader": "latest"
+    "typescript": "~3.8.3"
   }
 }
