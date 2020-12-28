@@ -15,8 +15,13 @@
  */
 
 const analyticsElements = {
+
     buttonWithText: (text: string) => cy.contains('button', text),
+    checkIfAnalyticsInArray: (analytics) => cy.get('#analyticsCypress').contains(analytics),
+    checkAnalytics: () => cy.get('#analyticsCypress')
 }
   
 export default analyticsElements
   
+
+//.should('have.length', 4)

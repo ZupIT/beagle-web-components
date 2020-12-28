@@ -18,12 +18,38 @@ import analyticsElements from '../elements/analytics-elements'
 import BeaglePage from './BeaglePage'
 
 class AnalyticsPage extends BeaglePage {
+  lastAlertMessage = ''
+  lastConfirmMessage = ''
+
   constructor() {
-    super('analytics')
+    super('analytics2.0')
+  }
+
+  init() {
+    return super.init().then(() => {
+      cy.on('window:alert', message => this.lastAlertMessage = message)
+      cy.on('window:confirm', (message) => this.lastConfirmMessage = message)
+    })
   }
 
   clickButtonByText(text: string) {
     analyticsElements.buttonWithText(text).click()
+  }
+ 
+  checkAlert(){
+    expect(this.lastAlertMessage).to.equal('AlertMessage')
+  }
+
+  checkConfirm(){
+    expect(this.lastConfirmMessage).to.equal('Confirm Message')
+  }
+
+  VerifyIfAnalyticsNotAdded(){
+    analyticsElements.checkAnalytics().should('have.length', 1)
+  }
+
+  VerifyIfAnalyticsAdded(analytics){
+    analyticsElements.checkIfAnalyticsInArray(analytics)
   }
  
 }
