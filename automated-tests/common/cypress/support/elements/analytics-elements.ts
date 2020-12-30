@@ -23,5 +23,3 @@ const analyticsElements = {
   
 export default analyticsElements
   
-
-//.should('have.length', 4)

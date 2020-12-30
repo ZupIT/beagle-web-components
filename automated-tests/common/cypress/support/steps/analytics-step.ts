@@ -24,11 +24,6 @@ Given("the Beagle application did launch with the Analytics screen url", () => {
     analyticsPage.init()
 })
 
-Given(/that, in the analylics config, enableScreenAnalytics is false/, () => {
-   
-})
-
-
 When(/I press the button with title "(.*)"/, (buttonText) => {
     analyticsPage.clickButtonByText(buttonText)
 })
