@@ -50,8 +50,4 @@ Feature: Analytics validation
     Scenario: Analytics 05 - View loaded, screen analytics enabled in the config (should create record)
         Then an analytics record should be created with [{"type":"screen","platform":"WEB Angular","url":"analytics2.0"}]
         
-    # # Scenario: Analytics 06 - View loaded, screen analytics disabled in the config (should not create record)
-    # #     Given that, in the analylics config, enableScreenAnalytics is false
-    # #     When I press the button with title navigateToPage2
-    # #     Then no analytics record should be created
 

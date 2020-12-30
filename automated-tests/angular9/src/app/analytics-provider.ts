@@ -5,11 +5,11 @@ const analyticsRecords:AnalyticsRecord[] = []
 let analyticsListener:Listener = () => {}
 
 const analyticsConfig: AnalyticsConfig = {
-    enableScreenAnalytics: true,
-    actions: {
-      'beagle:confirm': ['message']
-    }
+  enableScreenAnalytics: true,
+  actions: {
+    'beagle:confirm': ['message']
   }
+}
 
 const analyticsProvider = {
     subscribe:(listener:Listener ) => {
