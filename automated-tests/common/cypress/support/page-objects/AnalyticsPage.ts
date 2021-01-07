@@ -32,23 +32,28 @@ class AnalyticsPage extends BeaglePage {
     })
   }
 
+  verifyLocalStorage(key: string){
+    analyticsElements.cleanUpLocalStorage(key)
+    expect(localStorage.getItem('')).to.be.null
+  }
+
   clickButtonByText(text: string) {
     analyticsElements.buttonWithText(text).click()
   }
  
-  checkAlert(){
+  checkAlertAction(){
     expect(this.lastAlertMessage).to.equal('AlertMessage')
   }
 
-  checkConfirm(){
+  checkConfirmAction(){
     expect(this.lastConfirmMessage).to.equal('Confirm Message')
   }
 
-  VerifyIfAnalyticsNotAdded(){
+  verifyIfAnalyticsNotAdded(){
     analyticsElements.checkAnalytics().should('have.length', 1)
   }
 
-  VerifyIfAnalyticsAdded(analytics){
+  verifyIfAnalyticsAdded(analytics: string){
     analyticsElements.checkIfAnalyticsInArray(analytics)
   }
  

@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-
 import AnalyticsPage from '../page-objects/AnalyticsPage'
-
 
 const analyticsPage = new AnalyticsPage
 
@@ -24,22 +22,26 @@ Given("the Beagle application did launch with the Analytics screen url", () => {
     analyticsPage.init()
 })
 
+Given("that localStorage contains analytics they should be cleaned up", () => {
+    analyticsPage.verifyLocalStorage('Analytics_data')
+})
+
 When(/I press the button with title "(.*)"/, (buttonText) => {
     analyticsPage.clickButtonByText(buttonText)
 })
 
 Then("an alert dialog should appear on the screen", () => {
-    analyticsPage.checkAlert()
+    analyticsPage.checkAlertAction()
 })
 
 Then("a confirm dialog should appear on the screen", () => {
-    analyticsPage.checkConfirm()
+    analyticsPage.checkConfirmAction()
 })
 
 Then("no analytics record should be created", () => {
-    analyticsPage.VerifyIfAnalyticsNotAdded()
+    analyticsPage.verifyIfAnalyticsNotAdded()
 })
 
 Then(/an analytics record should be created with (.*)/, (analyticsConfig) => {
-    analyticsPage.VerifyIfAnalyticsAdded(analyticsConfig)
+    analyticsPage.verifyIfAnalyticsAdded(analyticsConfig)
 })

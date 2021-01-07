@@ -1,8 +1,8 @@
-import { AnalyticsConfig, AnalyticsRecord } from '@zup-it/beagle-web'
-type Listener = (records:AnalyticsRecord[]) => void
+import { AnalyticsConfig, AnalyticsProvider, AnalyticsRecord } from '@zup-it/beagle-web'
+import StorageService from './storage.service'
 
-const analyticsRecords:AnalyticsRecord[] = []
-let analyticsListener:Listener = () => {}
+const analyticsStorageKey = 'Analytics_data';
+let analyticsRecords: AnalyticsRecord[]
 
 const analyticsConfig: AnalyticsConfig = {
   enableScreenAnalytics: true,
@@ -11,19 +11,16 @@ const analyticsConfig: AnalyticsConfig = {
   }
 }
 
-const analyticsProvider = {
-    subscribe:(listener:Listener ) => {
-        analyticsListener = listener
-    },
-    createRecord: (record) => {
-        console.log(record)
-        //console.log('create record', analyticsListener)
-        analyticsRecords.push(record)
-        analyticsListener(analyticsRecords)
-        
-    },
-    getConfig: () => Promise.resolve(analyticsConfig),
-    startSession: () => Promise.resolve()
+const analyticsProvider: AnalyticsProvider = {
+  createRecord: (record) => {
+    analyticsRecords.push(record)
+    StorageService.setData(analyticsStorageKey, analyticsRecords)
+  },
+  getConfig: () => Promise.resolve(analyticsConfig),
+  startSession: async () => {
+    analyticsRecords = StorageService.getData(analyticsStorageKey) || [];
+    console.log('startSession', analyticsRecords)
+  }
 }
 
 export default analyticsProvider
