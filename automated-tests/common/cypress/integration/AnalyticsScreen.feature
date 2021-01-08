@@ -49,7 +49,10 @@ Feature: Analytics validation
         # When I press the dialog's OK button
         Then no analytics record should be created
     
-    # Scenario: Analytics 05 - View loaded, screen analytics enabled in the config (should create record)
-    #     Then an analytics record should be created with [{"type":"screen","platform":"WEB Angular","url":"analytics2.0"}]
+    Scenario: Analytics 05 - View loaded, screen analytics enabled in the config (should create record)
+        Given that localStorage contains analytics they should be cleaned up
+        When I press the button with title "navigateToPage"
+        When I press the button with title "navigate to local screen"
+        Then an analytics record should be created with [{"type":"screen","platform":"WEB Angular","url":"analytics2.0"},{"type":"screen","platform":"WEB Angular","url":"/analytics2.0-navigate"}]
         
 

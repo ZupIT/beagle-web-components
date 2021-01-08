@@ -17,6 +17,7 @@
 const analyticsElements = {
 
     buttonWithText: (text: string) => cy.contains('button', text),
+    //checkIfAnalyticsInArray: (analytics: string) => cy.get('#analyticsCypress').contains(analytics),
     checkIfAnalyticsInArray: (analytics: string) => cy.get('#analyticsCypress').contains(analytics),
     checkAnalytics: () => cy.get('#analyticsCypress'),
     cleanUpLocalStorage: (key: string) => cy.clearLocalStorage(key)

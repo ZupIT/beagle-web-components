@@ -57,6 +57,7 @@ class AnalyticsPage extends BeaglePage {
     analyticsElements.checkIfAnalyticsInArray(analytics)
   }
  
+ 
 }
 
 export default AnalyticsPage
