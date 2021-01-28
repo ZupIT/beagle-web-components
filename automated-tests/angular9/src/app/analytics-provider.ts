@@ -12,15 +12,12 @@ const analyticsConfig: AnalyticsConfig = {
 }
 
 const analyticsProvider: AnalyticsProvider = {
+  getConfig: () => analyticsConfig,
   createRecord: (record) => {
+    analyticsRecords = StorageService.getData(analyticsStorageKey) || [];
     analyticsRecords.push(record)
     StorageService.setData(analyticsStorageKey, analyticsRecords)
   },
-  getConfig: () => Promise.resolve(analyticsConfig),
-  startSession: async () => {
-    analyticsRecords = StorageService.getData(analyticsStorageKey) || [];
-    console.log('startSession', analyticsRecords)
-  }
 }
 
 export default analyticsProvider

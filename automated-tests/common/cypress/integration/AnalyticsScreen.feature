@@ -22,7 +22,7 @@ Feature: Analytics validation
 
     Background:
         Given the Beagle application did launch with the Analytics screen url
-
+        
     Scenario: Analytics 01 - Action with no remote analytics config and not declared in the local config (should not create record)
         When I press the button with title "Alert with no specific analytics configuration"
         Then an alert dialog should appear on the screen
@@ -33,16 +33,16 @@ Feature: Analytics validation
         Given that localStorage contains analytics they should be cleaned up
         When I press the button with title "Confirm with analytics local configuration"
         Then a confirm dialog should appear on the screen
-        # When I press the dialog's OK button
-        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","url":"analytics2.0"},{"type":"action","platform":"WEB Angular","event":"onPress","component":{"type":"beagle:button","id":"_beagle_5","position":{"x":8,"y":26},"xPath":"BODY/APP-ROOT[1]/BEAGLE[1]/BEAGLE-REMOTE-VIEW/BEAGLE-SCREEN[20]/BEAGLE-CONTAINER/BEAGLE-BUTTON[4]/"},"beagleAction":"beagle:confirm","title":"Confirm Title","message":"Confirm Message","url":"/analytics2.0"}
+        # When I press the dialog's OK button 
+        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","timestamp":1612148400000,"screen":"analytics2"},{"type":"action","platform":"WEB Angular","event":"onPress","component":{"type":"beagle:button","id":"_beagle_5","position":{"x":8,"y":26},"xPath":"BODY/APP-ROOT[1]/BEAGLE[1]/BEAGLE-REMOTE-VIEW/BEAGLE-SCREEN[20]/BEAGLE-CONTAINER/BEAGLE-BUTTON[4]/"},"beagleAction":"beagle:confirm","message":"Confirm Message","timestamp":1612148400000,"screen":"/analytics2"}
 
     Scenario: Analytics 03 - Action with remote analytics config and not declared in the local config (should create record with params from remote config)
         Given that localStorage contains analytics they should be cleaned up
         When I press the button with title "Alert with remote analytics configuration"
         Then an alert dialog should appear on the screen
         # When I press the dialog's OK button
-        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","url":"analytics2.0"},{"type":"action","platform":"WEB Angular","event":"onPress","component":{"type":"beagle:button","id":"_beagle_6","position":{"x":8,"y":98},"xPath":"BODY/APP-ROOT[1]/BEAGLE[1]/BEAGLE-REMOTE-VIEW/BEAGLE-SCREEN[20]/BEAGLE-CONTAINER/BEAGLE-BUTTON[12]/"},"beagleAction":"beagle:alert","message":"AlertMessage","url":"/analytics2.0"}
-    
+        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","timestamp":1612148400000,"screen":"analytics2"},{"type":"action","platform":"WEB Angular","event":"onPress","component":{"type":"beagle:button","id":"_beagle_6","position":{"x":8,"y":98},"xPath":"BODY/APP-ROOT[1]/BEAGLE[1]/BEAGLE-REMOTE-VIEW/BEAGLE-SCREEN[20]/BEAGLE-CONTAINER/BEAGLE-BUTTON[12]/"},"beagleAction":"beagle:alert","message":"AlertMessage","timestamp":1612148400000,"screen":"/analytics2"}
+
     Scenario: Analytics 04 - Action with analytics disabled in the remote config (should not create record)
         When I press the button with title "Confirm with disabled analytics configuration"
         Then a confirm dialog should appear on the screen
@@ -53,6 +53,6 @@ Feature: Analytics validation
         Given that localStorage contains analytics they should be cleaned up
         When I press the button with title "navigateToPage"
         When I press the button with title "navigate to local screen"
-        Then an analytics record should be created with [{"type":"screen","platform":"WEB Angular","url":"analytics2.0"},{"type":"screen","platform":"WEB Angular","url":"/analytics2.0-navigate"}]
+        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","timestamp":1612148400000,"screen":"analytics2"},{"type":"screen","platform":"WEB Angular","timestamp":1612148400000,"screen":"/analytics2-navigate"}
         
 

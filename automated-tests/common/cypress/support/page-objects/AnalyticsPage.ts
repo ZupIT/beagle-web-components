@@ -22,7 +22,7 @@ class AnalyticsPage extends BeaglePage {
   lastConfirmMessage = ''
 
   constructor() {
-    super('analytics2.0')
+    super('analytics2')
   }
 
   init() {
@@ -49,14 +49,13 @@ class AnalyticsPage extends BeaglePage {
     expect(this.lastConfirmMessage).to.equal('Confirm Message')
   }
 
-  verifyIfAnalyticsNotAdded(){
+  verifyIfAnalyticsNotCreated(){
     analyticsElements.checkAnalytics().should('have.length', 1)
   }
 
-  verifyIfAnalyticsAdded(analytics: string){
-    analyticsElements.checkIfAnalyticsInArray(analytics)
+  verifyIfAnalyticsIsCreated(analyticsRecord: string){
+    analyticsElements.checkIfAnalyticsInArray(analyticsRecord)
   }
- 
  
 }
 

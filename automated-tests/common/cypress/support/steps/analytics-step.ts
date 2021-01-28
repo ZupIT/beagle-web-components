@@ -19,6 +19,8 @@ import AnalyticsPage from '../page-objects/AnalyticsPage'
 const analyticsPage = new AnalyticsPage
 
 Given("the Beagle application did launch with the Analytics screen url", () => {
+    const now = new Date(2021, 1, 1).getTime() 
+    cy.clock(now)
     analyticsPage.init()
 })
 
@@ -39,9 +41,9 @@ Then("a confirm dialog should appear on the screen", () => {
 })
 
 Then("no analytics record should be created", () => {
-    analyticsPage.verifyIfAnalyticsNotAdded()
+    analyticsPage.verifyIfAnalyticsNotCreated()
 })
 
-Then(/an analytics record should be created with (.*)/, (analyticsConfig) => {
-    analyticsPage.verifyIfAnalyticsAdded(analyticsConfig)
+Then(/an analytics record should be created with (.*)/, (analyticsRecord) => {
+    analyticsPage.verifyIfAnalyticsIsCreated(analyticsRecord)
 })
