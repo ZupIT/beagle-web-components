@@ -55,7 +55,7 @@ jobs:
         run: yarn cache clean
 
       - name: Compile and run angular 9 app
-        working-directory: automated-tests/react
+        working-directory: automated-tests/angular9
         run: |
           yarn
           nohup yarn start 2>&1 &
