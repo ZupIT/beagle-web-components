@@ -14,7 +14,7 @@
  * limitations under the License. 
  */
 
-import AlertElements from '../elements/Alert-elements'
+import AlertElements from '../elements/alert-elements'
 import BeaglePage from './BeaglePage'
 
 class AlertPage extends BeaglePage {

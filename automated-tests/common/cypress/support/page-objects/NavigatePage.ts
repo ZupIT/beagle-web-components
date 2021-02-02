@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import navigateElements from '../elements/Navigate-elements'
+import navigateElements from '../elements/navigate-elements'
 import BeaglePage from './BeaglePage'
 
 class NavigatePage extends BeaglePage {

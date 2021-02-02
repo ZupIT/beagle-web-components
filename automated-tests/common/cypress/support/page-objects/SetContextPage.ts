@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import setContextElements from '../elements/button-elements'
+import setContextElements from '../elements/set-context-elements'
 import BeaglePage from './BeaglePage'
 
 class SetContextPage extends BeaglePage {
