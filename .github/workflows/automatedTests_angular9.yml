@@ -45,11 +45,6 @@ jobs:
           repository: ZupIT/beagle
           path: beagle-repository
 
-      - name: Check \ test beagle-repository checkout
-        run: |
-          ls # verify if it shows beagle-repository dir
-          find / -name beagle-repository
-
       - name: Build and start BFF
         working-directory: beagle-repository
         run: |
