@@ -62,7 +62,9 @@ jobs:
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
-        run: yarn test:angular:9
+        run: |
+          yarn
+          yarn test:angular:9
 
       - name: Expose failed test screenshot files
         if: failure()
