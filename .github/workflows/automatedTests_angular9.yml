@@ -58,7 +58,7 @@ jobs:
         working-directory: automated-tests/react
         run: |
           yarn
-          yarn start
+          nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
