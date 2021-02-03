@@ -50,8 +50,8 @@ jobs:
 
       - name: Test var
         env:
-          temp-tests1: ${{ BEAGLE_REPOSITORY_DIR }}
-          temp-tests2: ${{ env.BEAGLE_REPOSITORY_DIR }}
+          temp-tests1: ${{ env.BEAGLE_REPOSITORY_DIR }}
+          temp-tests2: ${{ jobs.angular9_tests.env.BEAGLE_REPOSITORY_DIR }}
         run: echo "temp-tests1 = $temp-tests1, temp-tests2 = $temp-tests2"
 
       - name: Halt
