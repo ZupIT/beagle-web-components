@@ -37,7 +37,7 @@ jobs:
     name: Main job
     runs-on: ubuntu-latest
     env:
-      BEAGLE_REPOSITORY_DIR: beagle-repository # for building and running the BFF server
+      BEAGLE_REPOSITORY_DIR: beagle-repository # for building and running the BFF server 
     steps:
       - uses: actions/checkout@v2
 
