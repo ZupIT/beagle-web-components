@@ -16,7 +16,7 @@
 
 name: Beagle Angular 9 Automated Tests
 
-# todo: disable workflow_dispatch and enable trigger by push\pr once the tests are fixed!
+# TODO: disable workflow_dispatch and enable trigger by push\pr once the tests are fixed!
 on: workflow_dispatch
 #on:
 #  push:
