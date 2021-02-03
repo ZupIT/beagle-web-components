@@ -43,9 +43,9 @@ jobs:
 
       - name: Checkout Beagle repository to run BFF
         uses: actions/checkout@v2
-        ref: master
         with:
           repository: ZupIT/beagle
+          ref: master
           path: ${BEAGLE_REPOSITORY_DIR}
 
       ##################################################################################################
