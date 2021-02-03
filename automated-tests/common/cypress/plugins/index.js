@@ -50,5 +50,14 @@ module.exports = (on, config) => {
     }
   })
 
+  on('before:browser:launch', (browser, launchOptions) => {
+    if (browser.name === 'chrome' && browser.isHeadless) {
+      console.log('TRUE')
+      launchOptions.args.push('--window-size=1280,720')
+  
+      return launchOptions
+    }
+  })
+
   addMatchImageSnapshotPlugin(on, config)
 }

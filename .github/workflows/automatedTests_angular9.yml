@@ -33,7 +33,7 @@ on:
 
 jobs:
   angular9_tests:
-    name: Angular 9 tests job
+    name: Main job
     runs-on: ubuntu-latest
 
     steps:
@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: failed_tests_screenshots
-          path: automated-tests\common\cypress\screenshots
+          path: automated-tests/common/cypress/screenshots
       
 
 
