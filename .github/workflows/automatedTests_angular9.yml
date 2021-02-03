@@ -50,9 +50,12 @@ jobs:
 
       - name: Test var
         env:
-          temp-tests: ${{ env.BEAGLE_REPOSITORY_DIR }}
-        run: echo $temp-tests && exit 1
+          temp-tests1: ${{ BEAGLE_REPOSITORY_DIR }}
+          temp-tests2: ${{ env.BEAGLE_REPOSITORY_DIR }}
+        run: echo "temp-tests1 = $temp-tests1, temp-tests2 = $temp-tests2"
 
+      - name: Halt
+        run: exit 1
       ##################################################################################################
       # Caching - Start
       ##################################################################################################
