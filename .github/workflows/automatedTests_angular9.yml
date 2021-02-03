@@ -36,8 +36,6 @@ jobs:
   angular9_tests:
     name: Main job
     runs-on: ubuntu-latest
-    env:
-      BEAGLE_REPOSITORY_DIR: beagle-repository # for building and running the BFF server
     steps:
       - uses: actions/checkout@v2
 
@@ -46,16 +44,8 @@ jobs:
         with:
           repository: ZupIT/beagle
           ref: master
-          path: ${BEAGLE_REPOSITORY_DIR}
+          path: beagle-repository
 
-      - name: Test var
-        env:
-          temp-tests1: ${{ env.BEAGLE_REPOSITORY_DIR }}
-          temp-tests2: ${{ jobs.angular9_tests.env.BEAGLE_REPOSITORY_DIR }}
-        run: echo "temp-tests1 = $temp-tests1, temp-tests2 = $temp-tests2"
-
-      - name: Halt
-        run: exit 1
       ##################################################################################################
       # Caching - Start
       ##################################################################################################
@@ -66,7 +56,7 @@ jobs:
           gradle-path: ~/.gradle
         with:
           path: ${{ env.gradle-path }}
-          key: ${{ runner.os }}-build-${{ env.gradle-cache-key }}-${{ hashFiles('${BEAGLE_REPOSITORY_DIR}/backend/buildSrc/**') }}
+          key: ${{ runner.os }}-build-${{ env.gradle-cache-key }}-${{ hashFiles('beagle-repository/backend/buildSrc/**') }}
           restore-keys: ${{ runner.os }}-build-${{ env.gradle-cache-key }}
 
       # Yarn caching:
@@ -89,11 +79,9 @@ jobs:
       ##################################################################################################
 
       - name: Build and start BFF
-        working-directory: ${BEAGLE_REPOSITORY_DIR}
+        working-directory: beagle-repository
         run: |
-          pwd
-          ls
-          backend/gradlew -p backend automated-tests:bootJar
+          backend/gradlew --build-cache -p backend automated-tests:bootJar
           nohup java -jar backend/automated-tests/build/libs/automated-tests.jar 2>&1 &
 
       - name: Compile and run angular 9 app
