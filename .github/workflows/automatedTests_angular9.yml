@@ -83,6 +83,8 @@ jobs:
       - name: Build and start BFF
         working-directory: ${BEAGLE_REPOSITORY_DIR}
         run: |
+          pwd
+          ls
           backend/gradlew -p backend automated-tests:bootJar
           nohup java -jar backend/automated-tests/build/libs/automated-tests.jar 2>&1 &
 
