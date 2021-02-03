@@ -17,54 +17,85 @@
 name: Beagle Angular 9 Automated Tests
 
 # TODO: disable workflow_dispatch and enable trigger by push\pr once the tests are fixed!
-on: workflow_dispatch
-#on:
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - 'automated-tests/**'
-#      - '.github/**'
-#  pull_request:
-#    branches:
-#      - master
-#    paths:
-#      - 'automated-tests/**'
-#      - '.github/**'
+#on: workflow_dispatch
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'automated-tests/**'
+      - '.github/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'automated-tests/**'
+      - '.github/**'
 
 jobs:
   angular9_tests:
     name: Main job
     runs-on: ubuntu-latest
-
+    env:
+      BEAGLE_REPOSITORY_DIR: beagle-repository # for building and running the BFF server
     steps:
       - uses: actions/checkout@v2
 
       - name: Checkout Beagle repository to run BFF
         uses: actions/checkout@v2
+        ref: master
         with:
           repository: ZupIT/beagle
-          path: beagle-repository
+          path: ${BEAGLE_REPOSITORY_DIR}
+
+      ##################################################################################################
+      # Caching - Start
+      ##################################################################################################
+      - name: Cache Beagle BFF gradle dependencies
+        uses: actions/cache@v2
+        env:
+          gradle-cache-key: backend-tests-gradle-cache
+          gradle-path: ~/.gradle
+        with:
+          path: ${{ env.gradle-path }}
+          key: ${{ runner.os }}-build-${{ env.gradle-cache-key }}-${{ hashFiles('${BEAGLE_REPOSITORY_DIR}/backend/buildSrc/**') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.gradle-cache-key }}
+
+      # Yarn caching:
+      # https://stackoverflow.com/questions/61010294/how-to-cache-yarn-packages-in-github-actions
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      ##################################################################################################
+      # Caching - end
+      ##################################################################################################
 
       - name: Build and start BFF
-        working-directory: beagle-repository
+        working-directory: ${BEAGLE_REPOSITORY_DIR}
         run: |
-          backend/gradlew -p backend automated-tests:bootJar
+          backend/gradlew --build-cache -p backend automated-tests:bootJar
           nohup java -jar backend/automated-tests/build/libs/automated-tests.jar 2>&1 &
-
-      - name: Clear yarn cache
-        run: yarn cache clean
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
-          yarn
+          yarn --prefer-offline
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
         run: |
-          yarn
+          yarn --prefer-offline
           yarn test:angular:9
 
       - name: Expose failed test screenshot files
