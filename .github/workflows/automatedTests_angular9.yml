@@ -48,6 +48,13 @@ jobs:
           ref: master
           path: ${BEAGLE_REPOSITORY_DIR}
 
+      - name: Test job var
+        working-directory: ${{ env.BEAGLE_REPOSITORY_DIR }}
+        run: |
+          pwd
+          ls
+          exit 1
+
       ##################################################################################################
       # Caching - Start
       ##################################################################################################
