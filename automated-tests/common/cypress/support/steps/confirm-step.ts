@@ -38,6 +38,6 @@ When(/I press an alert button with the (.*) title/, (buttonTitle) => {
     confirmPage.clickButtonByText(buttonTitle)
 })
 
-And(/an alert with the (.*) message should appear on the screen/, (message) => {
+And(/an alert with the (.*) message should appear on the Confirm screen/, (message) => {
     confirmPage.checkAlertMessage(message)
 })

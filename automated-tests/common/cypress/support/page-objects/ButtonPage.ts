@@ -26,6 +26,10 @@ class ButtonPage extends BeaglePage {
     buttonElements.buttons().should('have.length', quantity)
   }
 
+  checkNumberOfDisabledButtons(quantity: number) {
+    buttonElements.disabledButtons().should('have.length', quantity)
+  }
+
   checkButton(text: string) {
     buttonElements.buttonWithText(text).should('exist')
   }

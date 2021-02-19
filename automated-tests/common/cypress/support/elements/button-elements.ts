@@ -16,6 +16,7 @@
 
 const buttonElements = {
   buttons: () => cy.get('button'),
+  disabledButtons: () => cy.xpath('//button[@disabled]')/*cy.get('button').should('be.disabled')*/,
   buttonWithText: (text: string) => cy.contains('button', text),
   paragraphWithText: (text: string) => cy.contains('p', text)
 }

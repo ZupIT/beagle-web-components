@@ -27,11 +27,14 @@ When(/I click on button (.*)/, (buttonText) => {
 })
 
 Then("all my button components should render their respective text attributes correctly", () => {
-  buttonPage.checkNumberOfButtons(4)
+  buttonPage.checkNumberOfButtons(6)
+  buttonPage.checkNumberOfDisabledButtons(2)
   buttonPage.checkButton('Button')
   buttonPage.checkButton('Button with style')
   buttonPage.checkButton('Button with Appearance')
   buttonPage.checkButton('Button with Appearance and style')
+  buttonPage.checkButton('Disabled Button')
+  buttonPage.checkButton('Disabled Button by context')
 })
 
 Then('component should render the action attribute correctly', () => {
