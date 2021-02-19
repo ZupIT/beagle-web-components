@@ -29,6 +29,7 @@ class ConfirmPage extends BeaglePage {
         return super.init().then(() => {
             cy.on('window:alert', (message) => this.lastAlertMessage = message)
             cy.on('window:confirm', (message) => this.lastConfirmMessage = message)
+            cy.wait(1000)
           })
     }
 
