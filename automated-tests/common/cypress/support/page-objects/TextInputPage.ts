@@ -62,9 +62,6 @@ class TextInputPage extends BeaglePage {
     textInputElements.inputByPlaceholder(placeholder).type(`${value}`)
   }
   
-  checkIfHidden(value: string){
-     textInputElements.inputByValue(value).should('not.be.visible')
-  }
 }
 
 export default TextInputPage
