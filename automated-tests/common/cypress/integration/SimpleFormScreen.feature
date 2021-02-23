@@ -26,16 +26,16 @@ Feature: SimpleForm Component Validation
     
     Scenario: SimpleForm 01 - Checking if simpleForm children components appear on the screen
         Then checks that the textInput with the placeholder Type in your email is on the screen
-        Then checks that the textInput with the placeholder Type in your password is on the screen
+        Then checks that the textInput with the placeholder Type in your name is on the screen
         Then checks that the button with the title Click to Submit is on the screen
 
     Scenario Outline: SimpleForm 02 - SimpleForm component renders action attribute correctly
         When I type on textInput with the placeholder Type in your email and insert <email>
-        When I type on textInput with the placeholder Type in your password and insert <password>
+        When I type on textInput with the placeholder Type in your name and insert <name>
         When I click to button Click to Submit
-        Then verify if the email: <email> and the password: <password> is appear correctly
+        Then verify if the email: <email> and the name: <name> is appear correctly
 
         Examples:
-        | email                      | password |
-        | testeteste@simpleform.com  | 123      |
+        | email                      | name |
+        | testeteste@simpleform.com  | Test |
 
