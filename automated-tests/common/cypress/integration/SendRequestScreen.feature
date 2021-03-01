@@ -43,8 +43,7 @@ Feature: Send Request Action Validation
             | onFinish with success |
             | onFinish with error   |
 
-    Scenario Outline: Send Request 03 - The send request action get some result and show alert setting the
-    URL as an expression
+    Scenario Outline: Send Request 03 - The send request action get some result and show alert setting the URL as an expression
         When I press the <buttonTitle> button
         Then the screen should show some alert with <alertMessage> message
 
@@ -52,8 +51,7 @@ Feature: Send Request Action Validation
             | buttonTitle                               | alertMessage          |
             | request with success using expression URL | onFinish with success |
 
-    Scenario Outline: Send Request 04 - The send request action get some result and show alert when setting the
-    METHOD as an expression
+    Scenario Outline: Send Request 04 - The send request action get some result and show alert when setting the METHOD as an expression
         When I press the <buttonTitle> button
         Then the screen should show some alert with <alertMessage> message
 
