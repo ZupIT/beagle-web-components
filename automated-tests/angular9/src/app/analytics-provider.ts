@@ -7,7 +7,8 @@ let analyticsRecords: AnalyticsRecord[]
 const analyticsConfig: AnalyticsConfig = {
   enableScreenAnalytics: true,
   actions: {
-    'beagle:confirm': ['message']
+    'beagle:confirm': ['message'],
+    'beagle:alert': ['message']
   }
 }
 

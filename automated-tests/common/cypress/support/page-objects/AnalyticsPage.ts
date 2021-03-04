@@ -50,11 +50,11 @@ class AnalyticsPage extends BeaglePage {
   }
 
   verifyIfAnalyticsNotCreated(){
-    analyticsElements.checkAnalytics().should('have.length', 1)
+    analyticsElements.getAnalytics().should('have.length', 1)
   }
 
   verifyIfAnalyticsIsCreated(analyticsRecord: string){
-    analyticsElements.checkIfAnalyticsInArray(analyticsRecord)
+    analyticsElements.getAnalyticsInArray(analyticsRecord)
   }
  
 }
