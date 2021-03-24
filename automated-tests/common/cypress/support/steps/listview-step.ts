@@ -15,7 +15,6 @@
  */
 
 import ListViewPage from '../page-objects/ListViewPage'
-import { uniq } from 'lodash'
 
 const listViewPage = new ListViewPage
 

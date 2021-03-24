@@ -31,9 +31,10 @@ class ListViewPage extends BeaglePage {
   }
 
   init() {
-    super.init()
-    // give it a time to guarantee everything has been rendered
-    cy.wait(2000)
+    return super.init().then(() => {
+      // give it a time to guarantee everything has been rendered
+      cy.wait(2000)
+    })
   }
 
   private getListByName(listName: string) {
