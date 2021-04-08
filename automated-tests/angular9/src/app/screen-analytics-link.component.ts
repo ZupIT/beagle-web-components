@@ -6,7 +6,6 @@ import StorageService from './storage.service'
   templateUrl: './screen-analytics-link.component.html'
 })
 export class ScreenAnalyticsLinkComponent {
-  title = 'beagle-automated-tests-angular';
   analyticsJson = '[]'
 
   constructor() {
