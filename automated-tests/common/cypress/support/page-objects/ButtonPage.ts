@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { waitForDebugger } from 'node:inspector'
 import buttonElements from '../elements/button-elements'
 import BeaglePage from './BeaglePage'
 
@@ -27,6 +28,7 @@ class ButtonPage extends BeaglePage {
   }
 
   checkDisabledButtons(text: string) {
+   cy.wait(600)
     buttonElements.buttonWithText(text).should('be.disabled')
   }
 
