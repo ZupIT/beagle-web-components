@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { waitForDebugger } from 'node:inspector'
+import 'cypress-wait-until';
 import buttonElements from '../elements/button-elements'
 import BeaglePage from './BeaglePage'
 
