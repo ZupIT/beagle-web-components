@@ -34,7 +34,7 @@ Then("all my button components should render their respective text attributes co
   buttonPage.checkButton('Button with Appearance and style')
   buttonPage.checkButton('Disabled Button')
   buttonPage.checkButton('Disabled Button by context')
-  // buttonPage.checkDisabledButtons('Disabled Button')
+  buttonPage.checkDisabledButtons('Disabled Button')
   // buttonPage.checkDisabledButtons('Disabled Button by context')
 })
 
