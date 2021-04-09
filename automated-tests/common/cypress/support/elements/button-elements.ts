@@ -20,4 +20,6 @@ const buttonElements = {
   paragraphWithText: (text: string) => cy.contains('p', text)
 }
 
+
+
 export default buttonElements

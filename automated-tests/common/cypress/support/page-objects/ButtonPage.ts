@@ -24,16 +24,15 @@ class ButtonPage extends BeaglePage {
   }
 
   checkNumberOfButtons(quantity: number) {
-    buttonElements.buttons().should('have.length', quantity)
+    cy.waitUntil(() => buttonElements.buttons().should('have.length', quantity))
   }
 
   checkDisabledButtons(text: string) {
-   cy.wait(600)
-    buttonElements.buttonWithText(text).should('be.disabled')
+    cy.waitUntil(() => buttonElements.buttonWithText(text).should('be.disabled'))
   }
 
   checkButton(text: string) {
-    buttonElements.buttonWithText(text).should('exist')
+    cy.waitUntil(() => buttonElements.buttonWithText(text).should('exist'))
   }
 
   clickButton(text: string) {
