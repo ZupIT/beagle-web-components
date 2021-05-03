@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import ListViewPage from '../page-objects/listViewPage'
+import ListViewPage from '../page-objects/ListViewPage'
 import { uniq } from 'lodash'
 
 const listViewPage = new ListViewPage

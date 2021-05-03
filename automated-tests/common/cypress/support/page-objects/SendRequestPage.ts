@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import SendRequestElements from '../elements/Send-Request-elements'
+import SendRequestElements from '../elements/send-request-elements'
 import BeaglePage from './BeaglePage'
 
 class SendRequestPage extends BeaglePage {

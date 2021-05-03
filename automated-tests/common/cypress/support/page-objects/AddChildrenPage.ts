@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import addChildrenElements from '../elements/addChildren-elements'
+import addChildrenElements from '../elements/add-children-elements'
 import BeaglePage from './BeaglePage'
 
 class ChildrenPage extends BeaglePage {

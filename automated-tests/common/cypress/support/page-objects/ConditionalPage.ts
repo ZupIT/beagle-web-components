@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import ConditionalElements from '../elements/Conditional-elements'
+import ConditionalElements from '../elements/conditional-elements'
 import BeaglePage from './BeaglePage'
 
 class ConditionalPage extends BeaglePage {

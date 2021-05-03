@@ -14,21 +14,10 @@
  * limitations under the License.
  */
 
-import setContextElements from '../elements/set-context-elements'
-import BeaglePage from './BeaglePage'
-
-class SetContextPage extends BeaglePage {
-  constructor() {
-    super('set-context')
+const SendRequestElements = {
+    buttons: () => cy.get('button'),
+    buttonWithText: (text: string) => cy.contains('button', text),
   }
-
-  clickButton(text: string) {
-    setContextElements.buttonWithText(text).click()
-  }
-
-  checkSetContextAction(text: string) {
-    setContextElements.paragraphWithText(text).should('exist')
-  }
-}
-
-export default SetContextPage
+  
+  export default SendRequestElements
+  
