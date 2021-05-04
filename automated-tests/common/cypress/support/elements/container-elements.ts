@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { eq } from "cypress/types/lodash"
-
 const ContainerElements = {
     containerTexts: (text: string) => cy.contains('p', text),
     verifyContext:(context: string) => cy.get('p').each(() => {cy.contains(context)}) 

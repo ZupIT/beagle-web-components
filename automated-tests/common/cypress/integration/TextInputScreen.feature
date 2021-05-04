@@ -94,11 +94,3 @@ Feature: TextInput Validation
         And I type anything on textInput with the placeholder action order
         And I click the textInput with the placeholder is textInput type number
         Then the textInput with the placeholder Ordered actions should have value DidOnFocusDidOnChangeDidOnBlur
-
-    Scenario Outline: TextInput 11 - validate that textInput is hidden
-        Then The hidden input fields <textInputHidden> should not be visible
-
-        Examples:
-            | textInputHidden                     |
-            | this text is hidden                 |
-            | this text is hidden with expression |

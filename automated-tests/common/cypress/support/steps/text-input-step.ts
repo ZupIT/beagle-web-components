@@ -66,7 +66,4 @@ Then(/the textInput with the placeholder (.*) should have value (.*)/, (placehol
     textInputPage.checkEventByClick(placeholder, event)  
 })
 
-Then(/The hidden input fields (.*) should not be visible/, (value) => {
-    textInputPage.checkIfHidden(value)
-})
 

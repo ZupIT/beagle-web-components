@@ -45,6 +45,3 @@ const touchablePage = new TouchablePage
   Then('component should render the action attribute correctly', () => {
     touchablePage.checkTouchableAction()
   })
-
-
-  

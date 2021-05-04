@@ -44,14 +44,13 @@ Feature: Alert Action Validation
 
     Scenario: Confirm 03 - Checks that a the onPressOk method is triggered when the OK button is pressed to confirm component.
         When I press an alert button with the TriggersAnActionWhenConfirmed title
-        # When I press the confirmation OK button on the confirm component
-        Then an alert with the Confirm ok clicked message should appear on the screen
+        Then a confirm with the ConfirmMessage message should appear on the screen
+        And an alert with the Confirm ok clicked message should appear on the Confirm screen
 
     Scenario: Confirm 04 - Checks that a the onPressCancel method is triggered when the Cancel button is pressed to confirm component.
         Given that i'll cancel the confirmation window
         When I press an alert button with the TriggersAnActionWhenCanceled title
-        And a confirm with the CancelMessage message should appear on the screen
-        Then an alert with the Confirm cancel clicked message should appear on the screen
+        Then an alert with the Confirm cancel clicked message should appear on the Confirm screen
 
     # Scenario: Confirm 05 - Shows a Confirm message with customized text on the LabelOk and LabelCancel button.
     #     When I press an alert button with the CustomConfirmLabel title

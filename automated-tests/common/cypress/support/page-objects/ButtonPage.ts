@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import 'cypress-wait-until';
 import buttonElements from '../elements/button-elements'
 import BeaglePage from './BeaglePage'
 
@@ -23,11 +23,15 @@ class ButtonPage extends BeaglePage {
   }
 
   checkNumberOfButtons(quantity: number) {
-    buttonElements.buttons().should('have.length', quantity)
+    cy.waitUntil(() => buttonElements.buttons().should('have.length', quantity))
+  }
+
+  checkDisabledButtons(text: string) {
+    cy.waitUntil(() => buttonElements.buttonWithText(text).should('be.disabled'))
   }
 
   checkButton(text: string) {
-    buttonElements.buttonWithText(text).should('exist')
+    cy.waitUntil(() => buttonElements.buttonWithText(text).should('exist'))
   }
 
   clickButton(text: string) {
