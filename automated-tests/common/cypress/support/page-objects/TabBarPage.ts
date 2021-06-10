@@ -51,7 +51,7 @@ class TabBarPage extends BeaglePage {
   }
 
   CheckImageSource(){
-    tabBarElements.imageByIndex().should('have.attr', 'src').and('equal', 'https://i.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U')
+    tabBarElements.imageByIndex().should('have.attr', 'src').and('equal', '/public/beagle2.jpg')
   }
 
 

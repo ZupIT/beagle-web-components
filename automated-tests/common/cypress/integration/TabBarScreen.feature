@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-@tabBar @regression
+@tabbar @regression
 Feature: TabBar Component Validation
 
     As a Beagle developer/user

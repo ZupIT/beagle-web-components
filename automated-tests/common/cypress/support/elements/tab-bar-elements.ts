@@ -18,9 +18,7 @@ const TabBarElements = {
     imageByIndex: () => cy.get('img').eq(0),
     checkTabByText: (tabText: string) => cy.contains('.tab-item', tabText),
     checkCurrentPosition: (value: string) => cy.contains('p', value),
-    buttonWithText: (text: string) => cy.contains('button', text),
-
-   
+    buttonWithText: (text: string) => cy.contains('button', text)
 
 }
   
