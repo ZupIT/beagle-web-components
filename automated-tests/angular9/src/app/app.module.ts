@@ -4,13 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Beagle } from './beagle.module';
+import { ScreenAnalyticsLinkComponent } from './screen-analytics-link.component';
+import { BeagleComponent } from './beagle.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScreenAnalyticsLinkComponent,
+    BeagleComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     Beagle
   ],
