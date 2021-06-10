@@ -31,6 +31,7 @@
 const browserify = require('@cypress/browserify-preprocessor')
 const cucumber = require('cypress-cucumber-preprocessor').default
 const resolve = require('resolve')
+const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin')
 
 /**
  * @type {Cypress.PluginConfig}
@@ -48,4 +49,6 @@ module.exports = (on, config) => {
       return null
     }
   })
+
+  addMatchImageSnapshotPlugin(on, config)
 }

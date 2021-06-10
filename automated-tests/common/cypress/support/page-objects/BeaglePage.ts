@@ -24,7 +24,7 @@ class BeaglePage {
   }
 
   init() {
-    cy.visit(`${url}?path=${this.path}`)
+    return cy.visit(`${url}?path=${this.path}`)
   }
 }
 

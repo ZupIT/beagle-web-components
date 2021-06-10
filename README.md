@@ -1,6 +1,6 @@
 # About this repository
-The intention of this repo is to concentrate all the Beagle default components for Beagle-Angular
-and Beagle-React. For now it is not a priority to decouple these components from the core libs,
+This repo intends to concentrate all the Beagle default components for Beagle-Angular
+and Beagle-React. For now, it is not a priority to decouple these components from the core libs,
 since it will take a considerable amount of work.
 
 Testing the default components with instrumented tests is something that can be born decoupled
@@ -23,7 +23,7 @@ cd ../common
 yarn
 ```
 
-You will also need to clone the Beagle main repository in order to run the backend services. The
+You will also need to clone the Beagle main repository to run the backend services. The
 backend services are responsible for serving the views for our tests.
 
 ```bash
@@ -47,8 +47,8 @@ All the steps below must be executed under the directory corresponding to the be
 repository.
 
 The second step is to run the applications you want to test. To run angular, go to the directory
-`automatedTests/angular` and type `yarn start`. To run the react app, go to the directory
-`automatedTests/react` and type `yarn start`
+`automated-tests/angular` and type `yarn start`. To run the react app, go to the directory
+`automated-tests/react` and type `yarn start`
 
 ```bash
 # angular

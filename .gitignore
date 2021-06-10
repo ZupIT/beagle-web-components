@@ -22,3 +22,19 @@ dist/
 **/nohup.out
 .DS_Store
 screenshots/
+**/snapshots/**/__diff_output__
+
+# IntelliJ
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# Visual Studio Code
+.history/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace

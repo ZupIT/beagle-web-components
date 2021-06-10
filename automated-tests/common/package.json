@@ -6,7 +6,9 @@
     "test": "yarn run test:angular:9 && yarn run test:react && yarn run test:angular:8",
     "test:react": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:3000",
     "test:angular:9": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:4200",
-    "test:angular:8": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:4201"
+    "test:angular:8": "cypress-tags run --browser chrome --headless --env baseUrl=http://localhost:4201",
+    "cypress:open": "cypress open --env baseUrl=http://localhost:4200"
+    
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/steps"
@@ -14,8 +16,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^5.2.0",
-    "cypress-cucumber-preprocessor": "^2.5.5",
+    "@types/lodash": "^4.14.165",
+    "cypress": "6.0.0",
+    "cypress-cucumber-preprocessor": "4.0.0",
+    "cypress-image-snapshot": "^4.0.0",
+    "lodash": "^4.17.20",
     "typescript": "^4.0.3"
   }
 }
