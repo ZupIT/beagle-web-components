@@ -23,7 +23,7 @@ Given("that I'm on the image screen", () => {
 })
 
 Then("image screen should render all image attributes correctly", () => {
-  imagePage.checkNumberOfImages(5)
+  imagePage.checkNumberOfImages(10)
   imagePage.checkCenterCropImage()
   imagePage.checkCenterImage()
   imagePage.checkFitCenterImage()
