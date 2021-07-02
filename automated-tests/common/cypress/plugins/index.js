@@ -37,6 +37,9 @@ const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin')
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
+  
+  addMatchImageSnapshotPlugin(on, config);
+  
   const options = {
     ...browserify.defaultOptions,
     typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
@@ -50,5 +53,14 @@ module.exports = (on, config) => {
     }
   })
 
-  addMatchImageSnapshotPlugin(on, config)
+  // src: https://docs.cypress.io/api/plugins/browser-launch-api#Set-screen-size-when-running-headless
+  on('before:browser:launch', (browser, launchOptions) => {
+    // enforces the viewPort configured in cypress.json is applied in headless mode
+    if (browser.name === 'chrome' && browser.isHeadless) {
+      launchOptions.args.push('--force-device-scale-factor=1')
+    }
+
+    return launchOptions
+  })
 }
+
