@@ -27,5 +27,5 @@ Then("image screen should render all image attributes correctly", () => {
   cy.wait(2000)
 
   // @ts-ignore using untyped cypress extension
-   cy.matchImageSnapshot("Image01",0)
+  cy.matchImageSnapshot("Image01", 0)
 })

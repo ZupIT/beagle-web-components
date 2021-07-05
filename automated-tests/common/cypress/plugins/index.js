@@ -37,9 +37,9 @@ const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin')
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  
+
   addMatchImageSnapshotPlugin(on, config);
-  
+
   const options = {
     ...browserify.defaultOptions,
     typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
@@ -47,7 +47,7 @@ module.exports = (on, config) => {
 
   on('file:preprocessor', cucumber(options))
   on('task', {
-    log (message) {
+    log(message) {
       console.log(message)
       return null
     }

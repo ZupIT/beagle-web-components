@@ -101,7 +101,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: failed_tests_screenshots
-          path: automated-tests/common/cypress/snapshots/*/__diff_output__/
+          path: |
+            automated-tests/common/cypress/snapshots/*/__diff_output__/
+            automated-tests/common/screenshots/
+
+                
       
 
 
