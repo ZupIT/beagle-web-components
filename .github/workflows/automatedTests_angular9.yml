@@ -25,12 +25,14 @@ name: Beagle Angular 9 Automated Tests
    paths:
      - 'automated-tests/**'
      - '.github/**'
+     - './**'
  pull_request:
    branches:
      - master
    paths:
      - 'automated-tests/**'
      - '.github/**'
+     - './**'
 
 jobs:
   angular9_tests:
