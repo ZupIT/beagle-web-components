@@ -90,7 +90,7 @@ jobs:
           yarn --prefer-offline
           nohup yarn start 2>&1 &
 
-      - name: Run angular 9 app tests
+      - name: Run angular 9 app tests -- 
         working-directory: automated-tests/common
         run: |
           yarn --prefer-offline
