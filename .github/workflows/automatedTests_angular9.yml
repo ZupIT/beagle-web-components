@@ -102,8 +102,9 @@ jobs:
         with:
           name: failed_tests_screenshots
           path: |
+            automated-tests/common/screenshots/  
             automated-tests/common/cypress/snapshots/*/__diff_output__/
-            automated-tests/common/screenshots/
+            
 
                 
       
