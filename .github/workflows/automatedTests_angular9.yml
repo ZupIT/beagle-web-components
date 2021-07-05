@@ -17,20 +17,20 @@
 name: Beagle Angular 9 Automated Tests
 
 # TODO: disable workflow_dispatch and enable trigger by push\pr once the tests are fixed!
-on: workflow_dispatch
+#on: workflow_dispatch
 #on:
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - 'automated-tests/**'
-#      - '.github/**'
-#  pull_request:
-#    branches:
-#      - master
-#    paths:
-#      - 'automated-tests/**'
-#      - '.github/**'
+ push:
+   branches:
+     - master
+   paths:
+     - 'automated-tests/**'
+     - '.github/**'
+ pull_request:
+   branches:
+     - master
+   paths:
+     - 'automated-tests/**'
+     - '.github/**'
 
 jobs:
   angular9_tests:
@@ -94,14 +94,14 @@ jobs:
         working-directory: automated-tests/common
         run: |
           yarn --prefer-offline
-          yarn test:angular:9
+          yarn test:angular:9 TAGS="@image"
 
       - name: Expose failed test screenshot files
         if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: failed_tests_screenshots
-          path: automated-tests/common/cypress/screenshots
+          path: automated-tests/common/cypress/snapshots/*/__diff_output__/
       
 
 
