@@ -23,11 +23,9 @@ Given("that I'm on the image screen", () => {
 })
 
 Then("image screen should render all image attributes correctly", () => {
+  // even with imagePage.init(), it's necessary to ensure the page is loaded before taking screenshot
+  cy.wait(2000)
 
-  // imagePage.checkNumberOfImages(10)
-  // imagePage.checkCenterCropImage()
-  // imagePage.checkCenterImage()
-  // imagePage.checkFitCenterImage()
-  // imagePage.checkFitXyImage()
-  // imagePage.checkGenericImage()
+  // @ts-ignore using untyped cypress extension
+   cy.matchImageSnapshot("Image01",0)
 })
