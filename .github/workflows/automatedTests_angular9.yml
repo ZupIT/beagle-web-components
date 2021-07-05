@@ -94,7 +94,7 @@ jobs:
         working-directory: automated-tests/common
         run: |
           yarn --prefer-offline
-          yarn test:angular:9 TAGS="@image"
+          yarn test:angular:9
 
       - name: Expose failed test screenshot files
         if: failure()
