@@ -50,6 +50,7 @@ jobs:
       ##################################################################################################
       # Caching - Start
       ##################################################################################################
+      # Gradle caching:
       - name: Cache Beagle BFF gradle dependencies
         uses: actions/cache@v2
         env:
@@ -86,13 +87,15 @@ jobs:
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
-        # fixing end lines to avoid problems from files coming from Windows
-        # src: https://stackoverflow.com/a/48723812
-        # src: https://github.com/yarnpkg/yarn/issues/5480#issuecomment-464966030
+        # Fixing line endings to avoid problems from files coming from Windows
+        # It was giving the following error "env: node\r: No such file or directory" when using yarn
+        # src: 
+        #   https://stackoverflow.com/a/48723812
+        #   https://github.com/yarnpkg/yarn/issues/5480
         run: |
           brew install dos2unix
-          dos2unix -F node_modules/.bin/*
           yarn --prefer-offline
+          dos2unix -F node_modules/.bin/*
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
