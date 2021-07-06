@@ -36,7 +36,7 @@ on:
 jobs:
   angular9_tests:
     name: Main job
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -82,12 +82,13 @@ jobs:
       - name: Build and start BFF
         working-directory: beagle-repository
         run: |
-          backend/gradlew bootRun -p backend/automated-tests &>/dev/null &
+          backend/gradlew bootRun -p backend/automated-tests 2>&1 &
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
-          yarn --prefer-offline
+          rm -rf node_modules
+          yarn install
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
