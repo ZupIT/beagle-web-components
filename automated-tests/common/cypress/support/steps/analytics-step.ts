@@ -45,5 +45,6 @@ Then("no analytics record should be created", () => {
 })
 
 Then(/an analytics record should be created with (.*)/, (analyticsRecord) => {
+    cy.wait(5000)
     analyticsPage.verifyIfAnalyticsIsCreated(analyticsRecord)
 })
