@@ -63,18 +63,18 @@ jobs:
       # Yarn caching:
       # https://stackoverflow.com/questions/61010294/how-to-cache-yarn-packages-in-github-actions
       # https://github.com/actions/cache/blob/master/examples.md#node---yarn
-      # - name: Get Yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      # - name: Cache Yarn dependencies
-      #   uses: actions/cache@v2
-      #   id: yarn-cache
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-yarn-
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       ##################################################################################################
       # Caching - end
       ##################################################################################################
@@ -87,11 +87,8 @@ jobs:
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
-          npm install --global yarn
-          yarn -version
-          rm -rf node_modules
-          yarn cache clean
-          yarn install
+          yarn --prefer-offline
+          echo "printing dir"
           ls -la node_modules/.bin/
           nohup yarn start 2>&1 &
 
