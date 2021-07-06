@@ -36,7 +36,7 @@ on:
 jobs:
   angular9_tests:
     name: Main job
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -87,13 +87,12 @@ jobs:
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
-          yarn
+          yarn install --check-files
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
         run: |
-          yarn
           yarn test:angular:9
 
       - name: Expose failed test screenshot files
