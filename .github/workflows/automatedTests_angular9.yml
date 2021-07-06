@@ -87,7 +87,7 @@ jobs:
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
-        # Fixing line endings to avoid problems from files coming from Windows
+        # Fixing line endings to avoid problems from Beagle lib compilation on Windows
         # It was giving the following error "env: node\r: No such file or directory" when using yarn
         # src: 
         #   https://stackoverflow.com/a/48723812
@@ -95,7 +95,7 @@ jobs:
         run: |
           brew install dos2unix
           yarn --prefer-offline
-          dos2unix -F node_modules/.bin/*
+          dos2unix -F node_modules/.bin/beagle
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
