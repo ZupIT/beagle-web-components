@@ -14,42 +14,12 @@
  * limitations under the License.
  */
 
-import imageElements from '../elements/image-elements'
+
 import BeaglePage from './BeaglePage'
 
 class ImagePage extends BeaglePage {
   constructor() {
     super('image')
-  }
-
-  checkNumberOfImages(quantity: number) {
-    imageElements.images().should('have.length', quantity)
-  }
-
-  private checkImage(type: keyof typeof imageElements, expectedFit: string) {
-    const img = imageElements[type]()
-    img.should('exist')
-    img.should('have.css', 'object-fit', expectedFit)
-  }
-
-  checkGenericImage() {
-    this.checkImage('genericImage', 'cover')
-  }
-
-  checkFitXyImage() {
-    this.checkImage('fitXyImage', 'fill')
-  }
-
-  checkFitCenterImage() {
-    this.checkImage('fitCenterImage', 'cover')
-  }
-
-  checkCenterCropImage() {
-    this.checkImage('centerCropImage', 'none')
-  }
-
-  checkCenterImage() {
-    this.checkImage('centerImage', 'contain')
   }
 }
 

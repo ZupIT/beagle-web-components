@@ -16,9 +16,10 @@
 
 name: Beagle Angular 9 Automated Tests
 
-# TODO: disable workflow_dispatch and enable trigger by push\pr once the tests are fixed!
+
 on: workflow_dispatch
-#on:
+# Bellow configuration is for testing this workflow without merging to master
+# on:
 #  push:
 #    branches:
 #      - master
@@ -101,7 +102,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: failed_tests_screenshots
-          path: automated-tests/common/cypress/screenshots
+          path: |
+            automated-tests/common/cypress/screenshots/
+            automated-tests/common/cypress/snapshots/*/__diff_output__/            
+
+                
       
 
 
