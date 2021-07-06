@@ -28,6 +28,7 @@ class AnalyticsPage extends BeaglePage {
   init() {
     return super.init().then(() => {
       cy.on('window:alert', message => this.lastAlertMessage = message)
+      // @ts-ignore using untyped cypress extension
       cy.on('window:confirm', (message) => this.lastConfirmMessage = message)
     })
   }

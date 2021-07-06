@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-@action @addChildren @regression
+@addChildren @regression
 Feature: AddChildren validation
     As a Beagle developer/user
     I'd like to make sure my addChildren action works as expected

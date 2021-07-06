@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-@action @analytics2.0 @regression
+@analytics2.0 @regression
 Feature: Analytics validation
     As a Beagle developer/user
     I'd like to make sure my Analytics works as expected
