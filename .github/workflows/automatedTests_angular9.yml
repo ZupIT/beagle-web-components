@@ -86,10 +86,13 @@ jobs:
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
+        # fixing end lines to avoid problems from files coming from Windows
+        # src: https://stackoverflow.com/a/48723812
+        # src: https://github.com/yarnpkg/yarn/issues/5480#issuecomment-464966030
         run: |
+          brew install dos2unix
+          dos2unix -F node_modules/.bin/*
           yarn --prefer-offline
-          echo "printing dir"
-          ls -la node_modules/.bin/
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
