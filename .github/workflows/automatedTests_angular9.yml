@@ -82,14 +82,14 @@ jobs:
       - name: Build and start BFF
         working-directory: beagle-repository
         run: |
-          backend/gradlew --build-cache -p backend automated-tests:bootJar
+          backend/gradlew --build-cache -x test -p backend automated-tests:bootJar
           nohup java -jar backend/automated-tests/build/libs/automated-tests.jar 2>&1 &
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
           yarn --prefer-offline
-          nohup yarn start 2>&1 &
+          nohup yarn --network-timeout 300000 start 2>&1 &
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
