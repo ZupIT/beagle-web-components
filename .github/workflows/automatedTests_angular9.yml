@@ -87,12 +87,13 @@ jobs:
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
         run: |
-          yarn install --check-files
+          yarn --prefer-offline
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
         run: |
+          yarn --prefer-offline
           yarn test:angular:9
 
       - name: Expose failed test screenshot files
