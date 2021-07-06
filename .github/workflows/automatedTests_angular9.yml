@@ -82,7 +82,7 @@ jobs:
       - name: Build and start BFF
         working-directory: beagle-repository
         run: |
-          backend/gradlew bootRun -p backend/automated-tests 2>&1 &
+          backend/gradlew bootRun -p backend/automated-tests &>/dev/null &
 
       - name: Compile and run angular 9 app
         working-directory: automated-tests/angular9
