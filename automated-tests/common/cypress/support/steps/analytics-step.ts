@@ -23,12 +23,15 @@ Given("the Beagle application did launch with the Analytics screen url", () => {
     analyticsPage.init()
 })
 
-Given("that localStorage contains analytics they should be cleaned up", () => {
+Given("that the analytics local storage is cleaned up", () => {
+    cy.window().then((window) => {
+        window.sessionStorage.clear();
+        window.localStorage.clear();
+      });
     analyticsPage.verifyLocalStorage('Analytics_data')
 })
 
 When(/I press the button with title "(.*)"/, (buttonText) => {
-    cy.wait(5000)
     analyticsPage.clickButtonByText(buttonText)
 })
 
@@ -37,7 +40,6 @@ Then("an alert dialog should appear on the screen", () => {
 })
 
 Then("a confirm dialog should appear on the screen", () => {
-    cy.wait(5000)
     analyticsPage.checkConfirmAction()
 })
 
@@ -46,6 +48,5 @@ Then("no analytics record should be created", () => {
 })
 
 Then(/an analytics record should be created with (.*)/, (analyticsRecord) => {
-    cy.wait(5000)
     analyticsPage.verifyIfAnalyticsIsCreated(analyticsRecord)
 })
