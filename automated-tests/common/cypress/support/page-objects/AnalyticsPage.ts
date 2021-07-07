@@ -55,7 +55,10 @@ class AnalyticsPage extends BeaglePage {
   }
 
   verifyIfAnalyticsIsCreated(analyticsRecord: string){
-    analyticsElements.getAnalyticsInArray(analyticsRecord)
+    //analyticsElements.getAnalyticsInArray(analyticsRecord)
+    analyticsElements.getAnalytics().then(($div) => { 
+      expect($div.text()).to.have.string(analyticsRecord)
+     })
   }
  
 }
