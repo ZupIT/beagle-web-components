@@ -35,7 +35,7 @@ class AnalyticsPage extends BeaglePage {
 
   verifyLocalStorage(key: string){
     analyticsElements.cleanUpLocalStorage(key)
-    expect(localStorage.getItem('')).to.be.null
+    expect(localStorage.getItem(key)).to.be.null
   }
 
   clickButtonByText(text: string) {

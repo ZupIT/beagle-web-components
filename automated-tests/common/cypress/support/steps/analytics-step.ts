@@ -24,14 +24,12 @@ Given("the Beagle application did launch with the Analytics screen url", () => {
 })
 
 Given("that the analytics local storage is cleaned up", () => {
-    cy.window().then((window) => {
-        window.sessionStorage.clear();
-        window.localStorage.clear();
-      });
     analyticsPage.verifyLocalStorage('Analytics_data')
 })
 
 When(/I press the button with title "(.*)"/, (buttonText) => {
+    cy.screenshot()
+    cy.task('log', 'clicking on '+buttonText)
     analyticsPage.clickButtonByText(buttonText)
 })
 
