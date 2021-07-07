@@ -19,8 +19,9 @@ import AnalyticsPage from '../page-objects/AnalyticsPage'
 const analyticsPage = new AnalyticsPage
 
 Given("the Beagle application did launch with the Analytics screen url", () => {
-    const now = new Date(2021, 1, 1).getTime() 
-    cy.clock(now)
+    //const now = new Date(2021, 0, 1).getTime() //1609470000000
+    //cy.clock(now)
+    cy.clock(Date.UTC(2021, 0, 1), ['Date']) //1609459200000
     analyticsPage.init()
 })
 

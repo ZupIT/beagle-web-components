@@ -53,6 +53,6 @@ Feature: Analytics validation
         Given that localStorage contains analytics they should be cleaned up
         When I press the button with title "navigateToPage"
         When I press the button with title "navigate to local screen"
-        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","timestamp":1612137600000,"screen":"analytics2"}
+        Then an analytics record should be created with {"type":"screen","platform":"WEB Angular","timestamp":1609459200000,"screen":"analytics2"}
         
 
