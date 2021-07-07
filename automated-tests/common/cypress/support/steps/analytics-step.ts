@@ -29,7 +29,7 @@ Given("that the analytics local storage is cleaned up", () => {
 
 When(/I press the button with title "(.*)"/, (buttonText) => {
     cy.screenshot()
-    cy.task('log', 'clicking on '+buttonText)
+    //cy.task('log', 'clicking on '+buttonText)
     analyticsPage.clickButtonByText(buttonText)
 })
 
