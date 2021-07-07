@@ -28,6 +28,7 @@ Given("that localStorage contains analytics they should be cleaned up", () => {
 })
 
 When(/I press the button with title "(.*)"/, (buttonText) => {
+    cy.wait(5000)
     analyticsPage.clickButtonByText(buttonText)
 })
 
@@ -36,6 +37,7 @@ Then("an alert dialog should appear on the screen", () => {
 })
 
 Then("a confirm dialog should appear on the screen", () => {
+    cy.wait(5000)
     analyticsPage.checkConfirmAction()
 })
 
