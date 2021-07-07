@@ -93,9 +93,9 @@ jobs:
         #   https://stackoverflow.com/a/48723812
         #   https://github.com/yarnpkg/yarn/issues/5480
         run: |
-          brew install dos2unix
+          # brew install dos2unix
           yarn --prefer-offline
-          dos2unix -F node_modules/.bin/beagle
+          # dos2unix -F node_modules/.bin/beagle
           nohup yarn start 2>&1 &
 
       - name: Run angular 9 app tests
