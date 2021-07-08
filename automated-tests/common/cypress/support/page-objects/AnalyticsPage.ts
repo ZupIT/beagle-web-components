@@ -28,13 +28,14 @@ class AnalyticsPage extends BeaglePage {
   init() {
     return super.init().then(() => {
       cy.on('window:alert', message => this.lastAlertMessage = message)
+      // @ts-ignore using untyped cypress extension
       cy.on('window:confirm', (message) => this.lastConfirmMessage = message)
     })
   }
 
   verifyLocalStorage(key: string){
     analyticsElements.cleanUpLocalStorage(key)
-    expect(localStorage.getItem('')).to.be.null
+    expect(localStorage.getItem(key)).to.be.null
   }
 
   clickButtonByText(text: string) {
@@ -54,7 +55,9 @@ class AnalyticsPage extends BeaglePage {
   }
 
   verifyIfAnalyticsIsCreated(analyticsRecord: string){
-    analyticsElements.getAnalyticsInArray(analyticsRecord)
+    analyticsElements.getAnalytics().then(($div) => { 
+      expect($div.text()).to.have.string(analyticsRecord)
+     })
   }
  
 }
