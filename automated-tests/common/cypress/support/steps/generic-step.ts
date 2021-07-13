@@ -23,7 +23,7 @@
 */
 
 import { waitForDebugger } from 'inspector'
-import elementsHelper from '../elements/ElementsHelper'
+import elementsHelper from '../elements/ElementUtils'
 
 When(/I click on a button with text \"(.*)\"/, (text) => {
     elementsHelper.getElementByText('button', text).should('be.visible').click()
