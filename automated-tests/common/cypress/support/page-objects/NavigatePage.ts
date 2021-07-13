@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import ElementsHelper from '../elements/ElementUtils'
 import BeaglePage from './BeaglePage'
 
 class NavigatePage extends BeaglePage {

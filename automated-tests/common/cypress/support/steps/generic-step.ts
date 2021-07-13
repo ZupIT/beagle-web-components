@@ -23,32 +23,32 @@
 */
 
 import { waitForDebugger } from 'inspector'
-import elementsHelper from '../elements/ElementUtils'
+import ElementUtils from '../elements/ElementUtils'
 
 When(/I click on a button with text \"(.*)\"/, (text) => {
-    elementsHelper.getElementByText('button', text).should('be.visible').click()
+    ElementUtils.getElementByText('button', text).should('be.visible').click()
 })
 
 When(/I click on a button with exact text \"(.*)\"/, (text) => {
-    elementsHelper.getElementByExactText('button', text).should('be.visible').click().then(($el) => {
+    ElementUtils.getElementByExactText('button', text).should('be.visible').click().then(($el) => {
         cy.task('log', 'Button request: "' + text + '" Button clicked: "' + $el.text() + '"')
     })
 })
 
 Then(/the page should show an element with text \"(.*)\"/, (text) => {
-    elementsHelper.getAnyElementByText(text).should('be.visible')
+    ElementUtils.getAnyElementByText(text).should('be.visible')
 })
 
 Then(/the page should show an element with exact text \"(.*)\"/, (text) => {
     // @ts-ignore
-    elementsHelper.getAnyElementByExactText(text).should('be.visible')
+    ElementUtils.getAnyElementByExactText(text).should('be.visible')
 })
 
 Then(/the page should not show an element with text \"(.*)\"/, (text) => {
-    elementsHelper.getAnyElementByText(text).should('not.exist')
+    ElementUtils.getAnyElementByText(text).should('not.exist')
 })
 
 Then(/the page should not show an element with exact text \"(.*)\"/, (text) => {
     // @ts-ignore
-    elementsHelper.getAnyElementByExactText(text).should('not.exist')
+    ElementUtils.getAnyElementByExactText(text).should('not.exist')
 })
