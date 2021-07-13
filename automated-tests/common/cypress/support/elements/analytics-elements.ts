@@ -20,7 +20,6 @@ const analyticsElements = {
     getAnalyticsInArray: (analytics: string) => cy.get('#analyticsCypress').contains(analytics),
     getAnalytics: () => cy.get('#analyticsCypress'),
     cleanUpLocalStorage: (key: string) => cy.clearLocalStorage(key)
-
 }
   
 export default analyticsElements

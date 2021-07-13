@@ -13,11 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const navigateElements = {
-    buttons: () => cy.get('button'),
-    buttonWithText: (text: string) => cy.contains('button', text),
-    paragraphWithText: (text: string) => cy.contains('p', text),
-  }
-  
-  export default navigateElements
-  
+
+export default class ElementUtils {
+
+    static getAnyElementByText(text: string) {
+        return cy.contains(text)
+    }
+
+    static getAnyElementByExactText(text: string) {
+        return cy.contains(new RegExp("^\\s*" + text + "\\s*$"))
+    }
+
+    static getElementByText(elementTag: string, text: string) {
+        return cy.contains(elementTag, text)
+    }
+
+    static getElementByExactText(elementTag: string, text: string) {
+        return cy.contains(elementTag, new RegExp("^\\s*" + text + "\\s*$"))
+    }
+
+    static getElementById(id: string) {
+        return cy.get('#' + id)
+    }
+
+}

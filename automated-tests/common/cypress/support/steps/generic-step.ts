@@ -20,11 +20,35 @@
  3- Refactor all Page classes removing gerenic and repetitive methods used by the now removed steps. 
     Page classes are meant to hold only page scope methods and not generic methods like 'clickOnButtonWithTittle'  
 
-*/ 
-When(/I click on a button that contains the title: (.*)/, (buttonTitle) => {
-    cy.contains('button', buttonTitle).click()
+*/
+
+import { waitForDebugger } from 'inspector'
+import elementsHelper from '../elements/ElementsHelper'
+
+When(/I click on a button with text \"(.*)\"/, (text) => {
+    elementsHelper.getElementByText('button', text).should('be.visible').click()
 })
 
-When(/I click on a button that has exactly the title: (.*)/, (buttonTitle) => {
-    cy.contains('button', buttonTitle).click()
+When(/I click on a button with exact text \"(.*)\"/, (text) => {
+    elementsHelper.getElementByExactText('button', text).should('be.visible').click().then(($el) => {
+        cy.task('log', 'Button request: "' + text + '" Button clicked: "' + $el.text() + '"')
+    })
+})
+
+Then(/the page should show an element with text \"(.*)\"/, (text) => {
+    elementsHelper.getAnyElementByText(text).should('be.visible')
+})
+
+Then(/the page should show an element with exact text \"(.*)\"/, (text) => {
+    // @ts-ignore
+    elementsHelper.getAnyElementByExactText(text).should('be.visible')
+})
+
+Then(/the page should not show an element with text \"(.*)\"/, (text) => {
+    elementsHelper.getAnyElementByText(text).should('not.exist')
+})
+
+Then(/the page should not show an element with exact text \"(.*)\"/, (text) => {
+    // @ts-ignore
+    elementsHelper.getAnyElementByExactText(text).should('not.exist')
 })

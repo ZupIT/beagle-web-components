@@ -14,28 +14,12 @@
  * limitations under the License.
  */
 
-import navigateElements from '../elements/navigate-elements'
+import ElementsHelper from '../elements/ElementsHelper'
 import BeaglePage from './BeaglePage'
 
 class NavigatePage extends BeaglePage {
   constructor() {
     super('navigate-actions')
-  }
-
-  clickButton(text) {
-    navigateElements.buttonWithText(text).click()
-  }
-
-  checkNavigate(text) {
-    navigateElements.paragraphWithText(text).should('exist')
-  }
-
-  checkNoExist(text) {
-    navigateElements.paragraphWithText(text).should('not.exist')
-  }
-
-  checkButton(text) {
-    navigateElements.buttonWithText(text).should('exist')
   }
 }
 
