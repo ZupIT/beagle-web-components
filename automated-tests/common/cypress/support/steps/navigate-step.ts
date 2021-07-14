@@ -16,51 +16,8 @@
 
 import NavigatePage from '../page-objects/NavigatePage'
 
-const navigatepage = new NavigatePage
+const navigatePage = new NavigatePage
 
 Given("the Beagle application did launch with the navigation screen url", () => {
-    navigatepage.init()
+  navigatePage.init()
 })
-
-When(/I press a navigation button (.*)/, (buttonText) => {
-  navigatepage.clickButton(buttonText)
-})
-
-When(/I press a navigation failure button (.*)/, (buttonText) => {
-  navigatepage.clickButton(buttonText)
-})
-
-And (/I click on (.*) button/, (pop) => {
-  navigatepage.clickButton(pop)
-})
-
-Then(/the screen should navigate to another screen with the text label (.*)/, (text) => {
-  navigatepage.checkNavigate(text)
-})
-
-Then(/the screen should not navigate to another screen with the text label (.*)/, (text) => {
-  navigatepage.checkNoExist(text)
-})
-
-Then(/the app should dismiss the view that contains (.*)/, (text) => {
-  navigatepage.checkNoExist(text)
-})
-
-Then(/the view that contains the (.*) must still exist/, (title) => {
-  navigatepage.checkButton(title)
-})
-
-Then(/There must be a text with an error (.*)/, (text) => {
-  navigatepage.checkNavigate(text)
-})
-
-Then(/the view that contains the (.*) must still exist/, (text) => {
-  navigatepage.checkNavigate(text)
-})
-
-Then(/the view that contains (.*) must still exist/, (text) => {
-  navigatepage.checkNavigate(text)
-})
-
-
-  
