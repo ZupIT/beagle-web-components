@@ -18,17 +18,17 @@ name: Beagle Angular 9 Automated Tests
 
 
 on: workflow_dispatch
-# Bellow configuration is for testing this workflow without merging to master
+# Bellow configuration is for testing this workflow without merging to main
 # on:
 #  push:
 #    branches:
-#      - master
+#      - main
 #    paths:
 #      - 'automated-tests/**'
 #      - '.github/**'
 #  pull_request:
 #    branches:
-#      - master
+#      - main
 #    paths:
 #      - 'automated-tests/**'
 #      - '.github/**'
@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ZupIT/beagle
-          ref: master
+          ref: main
           path: beagle-repository
 
       ##################################################################################################
