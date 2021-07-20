@@ -96,7 +96,7 @@ jobs:
           brew install dos2unix
           yarn --prefer-offline
           dos2unix -F node_modules/.bin/beagle
-          nohup yarn start 2>&1 > angular9log.txt > &
+          nohup yarn start > angular9log.txt > 2>&1
           sleep 90
 
       - name: Run angular 9 app tests
