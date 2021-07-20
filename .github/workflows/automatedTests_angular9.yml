@@ -96,8 +96,8 @@ jobs:
           brew install dos2unix
           yarn --prefer-offline
           dos2unix -F node_modules/.bin/beagle
-          nohup yarn start 2>&1 &
-          sleep 60
+          nohup yarn start 2>&1 > angular9log.txt > &
+          sleep 90
 
       - name: Run angular 9 app tests
         working-directory: automated-tests/common
@@ -105,14 +105,15 @@ jobs:
           yarn --prefer-offline
           yarn test:angular:9
 
-      - name: Expose failed test screenshot files
+      - name: Expose failed test screenshot and other files
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: failed_tests_screenshots
+          name: failed_tests_screenshots_and_other_files
           path: |
             automated-tests/common/cypress/screenshots/
-            automated-tests/common/cypress/snapshots/*/__diff_output__/            
+            automated-tests/common/cypress/snapshots/*/__diff_output__/
+            automated-tests/angular9/angular9log.txt            
 
                 
       
