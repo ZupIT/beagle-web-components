@@ -17,21 +17,21 @@
 name: Beagle Angular 9 Automated Tests
 
 
-#on: workflow_dispatch
+on: workflow_dispatch
 # Bellow configuration is for testing this workflow without merging to main
-on:
- push:
-   branches:
-     - master
-   paths:
-     - 'automated-tests/**'
-     - '.github/**'
- pull_request:
-   branches:
-     - master
-   paths:
-     - 'automated-tests/**'
-     - '.github/**'
+# on:
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - 'automated-tests/**'
+#      - '.github/**'
+#  pull_request:
+#    branches:
+#      - master
+#    paths:
+#      - 'automated-tests/**'
+#      - '.github/**'
 
 jobs:
   angular9_tests:
