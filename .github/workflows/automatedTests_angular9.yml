@@ -105,11 +105,11 @@ jobs:
           yarn --prefer-offline
           yarn test:angular:9
 
-      - name: Expose failed test screenshot and other files
+      - name: Expose failed test screenshot and angular 9 app log
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: failed_tests_screenshots_and_other_files
+          name: failed_tests_screenshots_and_angular_app_log
           path: |
             automated-tests/common/cypress/screenshots/
             automated-tests/common/cypress/snapshots/*/__diff_output__/
