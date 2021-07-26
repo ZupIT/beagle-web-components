@@ -21,11 +21,3 @@ const imagePage = new ImagePage
 Given("that I'm on the image screen", () => {
   imagePage.init()
 })
-
-Then("image screen should render all image attributes correctly", () => {
-  // even with imagePage.init(), it's necessary to ensure the page is loaded before taking a screenshot
-  cy.wait(2000)
-
-  // @ts-ignore using untyped cypress extension
-  cy.matchImageSnapshot("Image01", 0)
-})

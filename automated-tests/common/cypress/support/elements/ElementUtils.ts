@@ -36,4 +36,8 @@ export default class ElementUtils {
         return cy.get('#' + id)
     }
 
+    static getElementByAttributeValue(attribute: string, value: string) {
+        return cy.get('[' + attribute + '="' + value + '"]')
+    }
+
 }

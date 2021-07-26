@@ -53,10 +53,12 @@ module.exports = (on, config) => {
     }
   })
 
-  // src: https://docs.cypress.io/api/plugins/browser-launch-api#Set-screen-size-when-running-headless
   on('before:browser:launch', (browser, launchOptions) => {
-    // enforces the viewPort configured in cypress.json is applied in headless mode
     if (browser.name === 'chrome' && browser.isHeadless) {
+      launchOptions.args.push('--disable-extensions')
+
+      // enforces the viewPort configured in cypress.json is applied in headless mode
+      // src: https://docs.cypress.io/api/plugins/browser-launch-api#Set-screen-size-when-running-headless
       launchOptions.args.push('--force-device-scale-factor=1')
     }
 

@@ -44,7 +44,7 @@
 import { addMatchImageSnapshotCommand } from '../../node_modules/cypress-image-snapshot/command'
 // src: https://github.com/jaredpalmer/cypress-image-snapshot#options
 addMatchImageSnapshotCommand({
-    failureThreshold: 0.5, // threshold for entire image
+    failureThreshold: 0.001, // threshold for entire image, ex 0.001 = 0.1% of difference
     failureThresholdType: 'percent', // percent of image or number of pixels
     customDiffConfig: { threshold: 0.1 }, // threshold for each pixel
     capture: 'viewport', // capture viewport in screenshot
