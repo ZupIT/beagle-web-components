@@ -37,8 +37,8 @@ When(/I scroll the listview with id \"(.*)\" to the end/, (elementId) => {
 })
 
 When(/I scroll to the bottom of the infinite scroll listview/, () => {
-  // scrolls twice because the rest of the elements are only shown after the a second scroll
-  cy.scrollTo('bottom', { duration: 500 })
-  cy.scrollTo('bottom', { duration: 500 })
-  cy.scrollTo('bottom', { duration: 500 })
+  // scrolls multiple times because the rest of the elements are only shown after the a second scroll
+  cy.scrollTo('bottom', { duration: 1500 })
+  cy.scrollTo('bottom', { duration: 1500 })
+  cy.scrollTo('bottom', { duration: 1500 })
 })
