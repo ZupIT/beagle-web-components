@@ -22,7 +22,7 @@ const listViewPage = new ListViewPage
 
 Given(/that I'm on the listView page/, () => {
   listViewPage.init()
-  
+
   /**
    * The listview page is not loaded at once. Some elements are still being 
    * processed / loaded when Cypress returns from 'visit' method (check class BeaglePage) 
@@ -33,7 +33,7 @@ Given(/that I'm on the listView page/, () => {
 })
 
 When(/I scroll the listview with id \"(.*)\" to the end/, (elementId) => {
-  ElementUtils.getElementByAttributeValue('data-beagle-id',elementId).scrollTo('right')
+  ElementUtils.getElementByAttributeValue('data-beagle-id', elementId).scrollTo('right')
 })
 
 When(/I scroll to the bottom of the infinite scroll listview/, () => {

@@ -20,6 +20,8 @@
  3- Refactor all Page classes removing gerenic and repetitive methods used by the now removed steps. 
     Page classes are meant to hold only page scope methods and not generic methods like 'clickOnButtonWithTittle'  
 
+ All these improvements will be covered here: https://github.com/ZupIT/beagle-web-components/issues/54   
+
 */
 
 //import { waitForDebugger } from 'inspector'
