@@ -25,5 +25,5 @@ Feature: Image Component Validation
     Given that I'm on the image screen
 
   Scenario: Image 01 - Image component renders image attribute correctly
-    Then image screen should render all image attributes correctly
+    Then the current page screenshot should be identical to image "Image01"
 

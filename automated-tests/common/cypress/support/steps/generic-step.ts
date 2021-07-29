@@ -20,9 +20,11 @@
  3- Refactor all Page classes removing gerenic and repetitive methods used by the now removed steps. 
     Page classes are meant to hold only page scope methods and not generic methods like 'clickOnButtonWithTittle'  
 
+ All these improvements will be covered here: https://github.com/ZupIT/beagle-web-components/issues/54   
+
 */
 
-import { waitForDebugger } from 'inspector'
+//import { waitForDebugger } from 'inspector'
 import ElementUtils from '../elements/ElementUtils'
 
 When(/I click on a button with text \"(.*)\"/, (text) => {
@@ -52,3 +54,18 @@ Then(/the page should not show an element with exact text \"(.*)\"/, (text) => {
     // @ts-ignore
     ElementUtils.getAnyElementByExactText(text).should('not.exist')
 })
+
+Then(/the current page screenshot should be identical to image \"(.*)\"/, (imageName) => {
+    compareScreenShot(imageName)
+})
+
+function compareScreenShot(imageName: string) {
+    /*
+     * Ensure the page is completely loaded before taking a screenshot 
+     */
+    cy.wait(2000)
+
+    // @ts-ignore using untyped cypress extension
+    cy.matchImageSnapshot(imageName)
+}
+
